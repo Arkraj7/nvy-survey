@@ -7,12 +7,15 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0eb}
+/* HEADER */
 .hdr{background:#1b3a2d;color:#fff;padding:16px 28px 12px;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .hdr-left h1{font-size:16px;font-weight:700;margin-bottom:2px}
 .hdr-left p{font-size:11px;color:#a8c4b0}
 .hdr-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .rid-box{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:5px 10px;border-radius:4px;font-size:11px;font-family:Arial,sans-serif;display:flex;align-items:center;gap:6px}
 .rid-val{font-weight:700;letter-spacing:0.5px;color:#a0e8b8}
+
+/* META BAR & GPS */
 .meta-bar{background:#163321;padding:8px 28px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;border-bottom:2px solid #0e2318}
 .meta-bar label{font-size:11px;color:#7aaa90;font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
 .meta-bar select{background:#0e2318;border:1px solid #2e6040;color:#d5eedd;padding:4px 9px;border-radius:4px;font-size:12px;font-family:Arial,sans-serif}
@@ -20,6 +23,8 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 .gps-btn:hover{background:#4a8a68}
 .gps-val{font-size:11px;color:#a0e8b8;font-family:'Courier New',monospace}
 .ts-display{font-size:11px;color:#5dc48a;font-family:'Courier New',monospace}
+
+/* TABS */
 .tabs{display:flex;background:#122b1e;padding:0 28px;flex-wrap:wrap}
 .tb{padding:9px 12px;font-size:11.5px;font-weight:700;color:#6aaa85;border:none;background:transparent;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;position:relative}
 .tb.on{color:#fff;border-bottom-color:#5dc48a}
@@ -27,6 +32,8 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 .tb .prog{position:absolute;top:3px;right:3px;width:7px;height:7px;border-radius:50%;background:#888}
 .tb .prog.full{background:#5dc48a}
 .tb .prog.part{background:#d4a017}
+
+/* WRAP & SECTION */
 .wrap{max-width:860px;margin:0 auto;padding:24px 28px 60px}
 .pane{display:none}.pane.on{display:block}
 .sec{margin-bottom:24px}
@@ -37,36 +44,54 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 .pane-title .pill{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#1b3a2d;background:#c8e8d0;padding:3px 9px;border-radius:3px;margin-bottom:5px}
 .pane-title h2{font-size:17px;font-weight:700;color:#1b3a2d;margin-bottom:2px;font-family:Georgia,serif}
 .pane-title p{font-size:12px;color:#666}
+
+/* QUESTION CARD */
 .qc{margin-bottom:11px;padding:12px 14px;background:#fff;border:1px solid #e0dbd0;border-radius:6px;transition:border-color 0.12s}
 .qc.answered{border-color:#5dc48a;background:#fafffe}
 .qn{font-size:10px;font-weight:700;color:#5dc48a;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:4px}
 .qt{font-size:13.5px;color:#1a1a1a;line-height:1.5;margin-bottom:2px}
 .qt-hi{font-size:12.5px;color:#666;font-family:sans-serif;margin-bottom:8px;line-height:1.4}
+.qt em{font-style:italic;color:#666;font-size:12.5px}
+.qt strong{font-weight:700}
+
+/* INTERACTIVE OPTIONS */
 .opts{display:flex;flex-wrap:wrap;gap:5px}
 .o{font-size:12px;background:#f0f7f3;color:#1b3a2d;border:1.5px solid #c5dece;padding:4px 11px;border-radius:11px;cursor:pointer;user-select:none;transition:all 0.12s}
 .o:hover{background:#d8f0e4;border-color:#5dc48a}
 .o.sel{background:#1b3a2d;color:#fff;border-color:#1b3a2d}
 .o.sc{background:#f0eeff;color:#2a1a7a;border-color:#b8aee0}
+.o.sc:hover{background:#ddd8ff}
 .o.sc.sel{background:#2d1f6e;color:#fff;border-color:#2d1f6e}
 .o.hl{background:#fff8e8;color:#7a4a00;border-color:#d4a017}
+.o.hl:hover{background:#fff0c8}
 .o.hl.sel{background:#c9870a;color:#fff;border-color:#c9870a}
 .o.warn{background:#fff0ed;color:#8a2200;border-color:#e09080}
 .o.warn.sel{background:#c03010;color:#fff;border-color:#c03010}
+
+/* TEXT AREA & MEDIA */
 .ta{width:100%;border:1.5px solid #e0dbd0;border-radius:5px;padding:8px 11px;font-family:Arial,sans-serif;font-size:13px;color:#1a1a1a;resize:vertical;min-height:40px;background:#fafaf8;margin-top:5px}
 .ta:focus{outline:none;border-color:#5dc48a;background:#fff}
+.ta-label{font-size:11px;color:#888;margin-bottom:3px}
 .media-box{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
 .media-btn{background:#e8e8e8;border:1px solid #ccc;padding:6px 12px;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px}
 .media-btn:hover{background:#ddd}
 .media-input{display:none}
+
+/* WHO-5 TABLE */
 .who-tbl{width:100%;border-collapse:collapse;margin-top:6px;font-size:12.5px}
 .who-tbl th{background:#2d1f6e;color:#fff;padding:6px 7px;font-size:11px;text-align:center;font-weight:700}
 .who-tbl th:first-child{text-align:left;min-width:42%}
 .who-tbl td{padding:6px 5px;border-bottom:1px solid #eee;text-align:center;vertical-align:middle}
 .who-tbl td:first-child{text-align:left;color:#1a1a1a;font-size:13px}
+.who-tbl tr:nth-child(even) td{background:#f8f6ff}
 .who-cell{width:28px;height:28px;border-radius:50%;border:1.5px solid #b8aee0;background:#f0eeff;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#4a3aaa;transition:all 0.12s;margin:0 auto}
+.who-cell:hover{background:#ddd8ff;border-color:#6a5acc}
 .who-cell.sel{background:#2d1f6e;color:#fff;border-color:#2d1f6e}
 .who-score-bar{background:#f0eeff;border:1px solid #c5b8e8;border-radius:6px;padding:8px 14px;margin-top:10px;display:flex;align-items:center;gap:16px;font-size:12px;font-family:'Courier New',monospace}
 .who-score-num{font-size:22px;font-weight:700;color:#2d1f6e}
+.who-interp{font-size:11px;font-family:Arial,sans-serif;color:#555}
+
+/* CVM TREE */
 .cvm-frame{background:#fffbee;border:1.5px solid #d4a017;border-radius:6px;padding:12px 14px;margin-bottom:10px}
 .cvm-q{font-size:13.5px;color:#1a1a1a;line-height:1.5;margin-bottom:2px}
 .cvm-branches{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
@@ -75,24 +100,46 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 .branch-yes.show,.branch-no.show{display:block}
 .branch-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:5px}
 .branch-q{font-size:13px;line-height:1.5;margin-bottom:2px}
+.branch-q strong{font-weight:700}
 .protest-box{display:none;margin-top:10px;background:#fff5f0;border:1.5px solid #e07050;border-radius:5px;padding:10px 12px}
 .protest-box.show{display:block}
+
+/* KII & BADGES */
 .kii-qc{margin-bottom:14px;padding:13px 15px;background:#fff;border:1px solid #e0dbd0;border-left:3px solid #5dc48a;border-radius:6px}
 .kii-qn{font-size:10px;font-weight:700;color:#5dc48a;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:4px}
 .kii-qt{font-size:13.5px;color:#1a1a1a;line-height:1.5;margin-bottom:2px}
+.probes{padding-left:16px;margin-bottom:6px}
+.probes li{font-size:11.5px;color:#555;margin-bottom:2px;line-height:1.5}
+.probes li::marker{color:#5dc48a}
+.badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.badge{font-size:10px;font-weight:700;background:#e6f2ea;color:#1b5e30;border:1px solid #aed4b8;padding:1px 7px;border-radius:3px}
+
+/* CAP BADGES (SLF) */
 .cap-badge{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:2px 8px;border-radius:3px;margin-bottom:8px}
-.cap-h{background:#e8f0ff;color:#1a3a8f}.cap-s{background:#fff0e8;color:#8f3a1a}.cap-n{background:#eaf5e0;color:#2a6010}.cap-p{background:#f5e8ff;color:#5a1a8f}.cap-f{background:#fffbe0;color:#7a5c00}
+.cap-h{background:#e8f0ff;color:#1a3a8f}
+.cap-s{background:#fff0e8;color:#8f3a1a}
+.cap-n{background:#eaf5e0;color:#2a6010}
+.cap-p{background:#f5e8ff;color:#5a1a8f}
+.cap-f{background:#fffbe0;color:#7a5c00}
+
+/* SUBMIT BAR */
 .submit-bar{position:sticky;bottom:0;background:#1b3a2d;padding:12px 28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-top:2px solid #0e2318;z-index:100}
 .btn{padding:9px 20px;border-radius:5px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:Arial,sans-serif;transition:all 0.15s}
 .btn-save{background:#2d6a4f;color:#fff}.btn-save:hover{background:#3a8a65}
 .btn-submit{background:#5dc48a;color:#1b3a2d}.btn-submit:hover{background:#4ab878}
 .btn-clear{background:transparent;color:#a8c4b0;border:1px solid #3a6a50}.btn-clear:hover{background:#0e2318;color:#fff}
 .submit-status{font-size:12px;color:#a8c4b0;font-family:'Courier New',monospace}
+.submit-status.ok{color:#5dc48a}
+.submit-status.err{color:#ff8a70}
+
+/* SETUP TAB */
 .setup-card{background:#fff;border:1px solid #e0dbd0;border-radius:6px;padding:16px 18px;margin-bottom:16px}
 .setup-card h3{font-size:14px;font-weight:700;color:#1b3a2d;margin-bottom:8px}
 .url-input{width:100%;border:1.5px solid #5dc48a;border-radius:4px;padding:7px 11px;font-family:'Courier New',monospace;font-size:12px;color:#1a1a1a;background:#f0fff4;margin-top:6px}
 .dict-grid{display:grid;grid-template-columns:auto 1fr;gap:6px 15px;margin-top:8px;font-size:12px}
 .dict-col{font-weight:700;color:#1b5e30;background:#e8f4ed;padding:2px 6px;border-radius:3px;display:inline-block}
+
+/* DEMO GRID */
 .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:5px}
 .demo-item{background:#f8f6f2;border:1.5px solid #e0dbd0;border-radius:4px;padding:7px 10px;display:flex;align-items:center;gap:7px;cursor:pointer;transition:all 0.12s;user-select:none}
 .demo-item:hover{border-color:#bf5a3a;background:#fff5f2}
@@ -101,11 +148,20 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 .demo-item.sel .demo-cb{background:#bf5a3a}
 .demo-item.sel .demo-cb::after{content:"✓";color:#fff;font-size:10px;font-weight:700}
 .demo-txt{font-size:12.5px;color:#2a2a2a}
+
 .prog-bar-wrap{background:#0e2318;height:3px;width:100%}
 .prog-bar-fill{height:3px;background:#5dc48a;transition:width 0.3s}
 .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#1b3a2d;color:#fff;padding:10px 20px;border-radius:6px;font-size:13px;font-weight:700;z-index:9999;opacity:0;transition:opacity 0.3s;pointer-events:none;border:1px solid #5dc48a}
 .toast.show{opacity:1}
-@media(max-width:600px){ .demo-grid{grid-template-columns:1fr} .cvm-branches{grid-template-columns:1fr} .wrap{padding:16px 14px 60px} .hdr{padding:12px 16px} .tabs{padding:0 14px} .submit-bar{padding:10px 14px} }
+
+@media(max-width:600px){
+  .demo-grid{grid-template-columns:1fr}
+  .cvm-branches{grid-template-columns:1fr}
+  .wrap{padding:16px 14px 60px}
+  .hdr{padding:12px 16px}
+  .tabs{padding:0 14px}
+  .submit-bar{padding:10px 14px}
+}
 </style>
 </head>
 <body>
@@ -663,35 +719,54 @@ function getLocation() {
   } else { display.textContent = "Not Supported"; }
 }
 
-// ─── BASE64 MEDIA HANDLING (FOR GOOGLE DRIVE) ───
+// ─── BASE64 MEDIA HANDLING WITH COMPRESSION ───
 function handleMedia(input, type) {
   if (input.files && input.files[0]) {
     var file = input.files[0];
-    var reader = new FileReader();
+    document.getElementById(type + '-status').textContent = "⏳ Processing...";
     
-    document.getElementById(type + '-status').textContent = "⏳ Processing for upload...";
+    if(type === 'photo') {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+          // Compress the image
+          var canvas = document.createElement('canvas');
+          var MAX_WIDTH = 1200; // Good balance of quality and small file size
+          var scaleSize = MAX_WIDTH / img.width;
+          canvas.width = MAX_WIDTH;
+          canvas.height = img.height * scaleSize;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          
+          var compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7); // 70% quality
+          var base64 = compressedDataUrl.split(',')[1];
+          
+          R.photo_base64 = base64;
+          R.photo_mime = 'image/jpeg';
+          R.photo_filename = R.respondent_id + "_photo.jpg";
+          R.photo_file = "Uploading..."; // Placeholder
+          document.getElementById('photo-status').textContent = "✓ Compressed & Ready";
+          updateProgress();
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    } 
     
-    reader.onload = function(e) {
-      var dataUrl = e.target.result;
-      var base64 = dataUrl.split(',')[1];
-      
-      if(type === 'photo') {
-        R.photo_base64 = base64;
-        R.photo_mime = file.type;
-        R.photo_filename = R.respondent_id + "_photo_" + file.name;
-        R.photo_file = "Uploading..."; // Placeholder until script replaces it with Drive URL
-        document.getElementById('photo-status').textContent = "✓ Ready to upload";
-      }
-      if(type === 'audio') {
+    if(type === 'audio') {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var base64 = e.target.result.split(',')[1];
         R.audio_base64 = base64;
         R.audio_mime = file.type;
         R.audio_filename = R.respondent_id + "_audio_" + file.name;
-        R.audio_file = "Uploading..."; // Placeholder until script replaces it with Drive URL
-        document.getElementById('audio-status').textContent = "✓ Ready to upload";
-      }
-      updateProgress();
-    };
-    reader.readAsDataURL(file);
+        R.audio_file = "Uploading..."; // Placeholder
+        document.getElementById('audio-status').textContent = "✓ Ready";
+        updateProgress();
+      };
+      reader.readAsDataURL(file);
+    }
   }
 }
 
@@ -796,20 +871,25 @@ function submitToSheets() {
   
   var btn = document.querySelector('.btn-submit');
   
-  // Notice: Takes longer if uploading media
   if(R.photo_base64 || R.audio_base64) {
-      btn.textContent = "⏳ Uploading Media to Drive...";
+      btn.textContent = "⏳ Uploading to Drive...";
   } else {
       btn.textContent = "⏳ Sending...";
   }
   
-  fetch(url, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(R) })
-  .then(function() {
+  // FIX: Removed strict headers to bypass Google CORS blocks
+  fetch(url, { 
+    method: 'POST', 
+    body: JSON.stringify(R) 
+  })
+  .then(response => response.text())
+  .then(function(text) {
     btn.textContent = "▶ Submit";
     showToast('✓ Saved & Uploaded to Drive!');
     saveLocal();
   }).catch(function(e) {
-    btn.textContent = "▶ Submit"; showToast('✗ Error saving');
+    btn.textContent = "▶ Submit"; 
+    showToast('✗ Error saving. Try again.');
   });
 }
 
