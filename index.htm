@@ -581,17 +581,17 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
     </div>
     
     <div class="qc" style="background:#f0f8ff; border-color:#b8d8e0">
-      <div class="qn" style="color:#2a7a9a">Media Attachments</div>
-      <p style="font-size:11px; color:#555; margin-bottom:8px">Take photos with your phone's native camera first, then attach them here to save the filename.</p>
+      <div class="qn" style="color:#2a7a9a">Media Captures</div>
+      <p style="font-size:11px; color:#555; margin-bottom:8px">Take photo/audio directly. Verify these save to your phone's storage based on your OS settings.</p>
       <div class="media-box">
-        <label class="media-btn">📷 Attach Photo
-          <input type="file" accept="image/*" class="media-input" onchange="handleMedia(this, 'photo')">
+        <label class="media-btn">📷 Take Photo
+          <input type="file" accept="image/*" capture="environment" class="media-input" onchange="handleMedia(this, 'photo')">
         </label>
         <span id="photo-status" style="font-size:11px; color:#2d6a4f; align-self:center"></span>
       </div>
       <div class="media-box">
-        <label class="media-btn">🎤 Attach Audio
-          <input type="file" accept="audio/*" class="media-input" onchange="handleMedia(this, 'audio')">
+        <label class="media-btn">🎤 Record Audio
+          <input type="file" accept="audio/*" capture="microphone" class="media-input" onchange="handleMedia(this, 'audio')">
         </label>
         <span id="audio-status" style="font-size:11px; color:#2d6a4f; align-self:center"></span>
       </div>
