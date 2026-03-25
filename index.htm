@@ -1,0 +1,2007 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVY Field Survey — Arkraj Biswas | National CAMPA</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #1a1a1a;
+            background: #f2f0eb
+        }
+
+        /* HEADER */
+        .hdr {
+            background: #1b3a2d;
+            color: #fff;
+            padding: 16px 28px 12px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .hdr-left h1 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 2px
+        }
+
+        .hdr-left p {
+            font-size: 11px;
+            color: #a8c4b0
+        }
+
+        .hdr-right {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap
+        }
+
+        .rid-box {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .rid-val {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #a0e8b8
+        }
+
+        /* META BAR & GPS */
+        .meta-bar {
+            background: #163321;
+            padding: 8px 28px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            border-bottom: 2px solid #0e2318
+        }
+
+        .meta-bar label {
+            font-size: 11px;
+            color: #7aaa90;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px
+        }
+
+        .meta-bar select {
+            background: #0e2318;
+            border: 1px solid #2e6040;
+            color: #d5eedd;
+            padding: 4px 9px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-family: Arial, sans-serif
+        }
+
+        .gps-btn {
+            background: #3a6a50;
+            color: #fff;
+            border: none;
+            padding: 4px 9px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px
+        }
+
+        .gps-btn:hover {
+            background: #4a8a68
+        }
+
+        .gps-val {
+            font-size: 11px;
+            color: #a0e8b8;
+            font-family: 'Courier New', monospace
+        }
+
+        .ts-display {
+            font-size: 11px;
+            color: #5dc48a;
+            font-family: 'Courier New', monospace
+        }
+
+        /* TABS */
+        .tabs {
+            display: flex;
+            background: #122b1e;
+            padding: 0 28px;
+            flex-wrap: wrap
+        }
+
+        .tb {
+            padding: 9px 12px;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #6aaa85;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+            position: relative
+        }
+
+        .tb.on {
+            color: #fff;
+            border-bottom-color: #5dc48a
+        }
+
+        .tb:hover:not(.on) {
+            color: #b5d8c0
+        }
+
+        .tb .prog {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #888
+        }
+
+        .tb .prog.full {
+            background: #5dc48a
+        }
+
+        .tb .prog.part {
+            background: #d4a017
+        }
+
+        /* WRAP & SECTION */
+        .wrap {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 24px 28px 60px
+        }
+
+        .pane {
+            display: none
+        }
+
+        .pane.on {
+            display: block
+        }
+
+        .sec {
+            margin-bottom: 24px
+        }
+
+        .sec-hd {
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            background: #1b3a2d;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .sec-sub {
+            font-size: 10px;
+            font-weight: 400;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1px 7px;
+            border-radius: 3px
+        }
+
+        .note {
+            background: #fffbee;
+            border-left: 3px solid #c9980e;
+            padding: 8px 12px;
+            border-radius: 0 4px 4px 0;
+            margin-bottom: 16px;
+            font-size: 12px;
+            color: #5a4208;
+            line-height: 1.6
+        }
+
+        .pane-title {
+            margin-bottom: 16px
+        }
+
+        .pane-title .pill {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: #1b3a2d;
+            background: #c8e8d0;
+            padding: 3px 9px;
+            border-radius: 3px;
+            margin-bottom: 5px
+        }
+
+        .pane-title h2 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1b3a2d;
+            margin-bottom: 2px;
+            font-family: Georgia, serif
+        }
+
+        .pane-title p {
+            font-size: 12px;
+            color: #666
+        }
+
+        /* QUESTION CARD */
+        .qc {
+            margin-bottom: 11px;
+            padding: 12px 14px;
+            background: #fff;
+            border: 1px solid #e0dbd0;
+            border-radius: 6px;
+            transition: border-color 0.12s
+        }
+
+        .qc.answered {
+            border-color: #5dc48a;
+            background: #fafffe
+        }
+
+        .qn {
+            font-size: 10px;
+            font-weight: 700;
+            color: #5dc48a;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 4px
+        }
+
+        .qt {
+            font-size: 13.5px;
+            color: #1a1a1a;
+            line-height: 1.5;
+            margin-bottom: 2px
+        }
+
+        .qt-hi {
+            font-size: 12.5px;
+            color: #666;
+            font-family: sans-serif;
+            margin-bottom: 8px;
+            line-height: 1.4
+        }
+
+        .qt em {
+            font-style: italic;
+            color: #666;
+            font-size: 12.5px
+        }
+
+        .qt strong {
+            font-weight: 700
+        }
+
+        /* INTERACTIVE OPTIONS */
+        .opts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px
+        }
+
+        .o {
+            font-size: 12px;
+            background: #f0f7f3;
+            color: #1b3a2d;
+            border: 1.5px solid #c5dece;
+            padding: 4px 11px;
+            border-radius: 11px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.12s
+        }
+
+        .o:hover {
+            background: #d8f0e4;
+            border-color: #5dc48a
+        }
+
+        .o.sel {
+            background: #1b3a2d;
+            color: #fff;
+            border-color: #1b3a2d
+        }
+
+        .o.sc {
+            background: #f0eeff;
+            color: #2a1a7a;
+            border-color: #b8aee0
+        }
+
+        .o.sc:hover {
+            background: #ddd8ff
+        }
+
+        .o.sc.sel {
+            background: #2d1f6e;
+            color: #fff;
+            border-color: #2d1f6e
+        }
+
+        .o.hl {
+            background: #fff8e8;
+            color: #7a4a00;
+            border-color: #d4a017
+        }
+
+        .o.hl:hover {
+            background: #fff0c8
+        }
+
+        .o.hl.sel {
+            background: #c9870a;
+            color: #fff;
+            border-color: #c9870a
+        }
+
+        .o.warn {
+            background: #fff0ed;
+            color: #8a2200;
+            border-color: #e09080
+        }
+
+        .o.warn.sel {
+            background: #c03010;
+            color: #fff;
+            border-color: #c03010
+        }
+
+        /* TEXT AREA & MEDIA */
+        .ta {
+            width: 100%;
+            border: 1.5px solid #e0dbd0;
+            border-radius: 5px;
+            padding: 8px 11px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            color: #1a1a1a;
+            resize: vertical;
+            min-height: 40px;
+            background: #fafaf8;
+            margin-top: 5px
+        }
+
+        .ta:focus {
+            outline: none;
+            border-color: #5dc48a;
+            background: #fff
+        }
+
+        .ta-label {
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 3px
+        }
+
+        .media-box {
+            display: flex;
+            gap: 10px;
+            margin-top: 8px;
+            flex-wrap: wrap
+        }
+
+        .media-btn {
+            background: #e8e8e8;
+            border: 1px solid #ccc;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .media-btn:hover {
+            background: #ddd
+        }
+
+        .media-input {
+            display: none
+        }
+
+        /* WHO-5 TABLE */
+        .who-tbl {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 6px;
+            font-size: 12.5px
+        }
+
+        .who-tbl th {
+            background: #2d1f6e;
+            color: #fff;
+            padding: 6px 7px;
+            font-size: 11px;
+            text-align: center;
+            font-weight: 700
+        }
+
+        .who-tbl th:first-child {
+            text-align: left;
+            min-width: 42%
+        }
+
+        .who-tbl td {
+            padding: 6px 5px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+            vertical-align: middle
+        }
+
+        .who-tbl td:first-child {
+            text-align: left;
+            color: #1a1a1a;
+            font-size: 13px
+        }
+
+        .who-tbl tr:nth-child(even) td {
+            background: #f8f6ff
+        }
+
+        .who-cell {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1.5px solid #b8aee0;
+            background: #f0eeff;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: #4a3aaa;
+            transition: all 0.12s;
+            margin: 0 auto
+        }
+
+        .who-cell:hover {
+            background: #ddd8ff;
+            border-color: #6a5acc
+        }
+
+        .who-cell.sel {
+            background: #2d1f6e;
+            color: #fff;
+            border-color: #2d1f6e
+        }
+
+        .who-score-bar {
+            background: #f0eeff;
+            border: 1px solid #c5b8e8;
+            border-radius: 6px;
+            padding: 8px 14px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 12px;
+            font-family: 'Courier New', monospace
+        }
+
+        .who-score-num {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2d1f6e
+        }
+
+        .who-interp {
+            font-size: 11px;
+            font-family: Arial, sans-serif;
+            color: #555
+        }
+
+        /* CVM TREE */
+        .cvm-frame {
+            background: #fffbee;
+            border: 1.5px solid #d4a017;
+            border-radius: 6px;
+            padding: 12px 14px;
+            margin-bottom: 10px
+        }
+
+        .cvm-q {
+            font-size: 13.5px;
+            color: #1a1a1a;
+            line-height: 1.5;
+            margin-bottom: 2px
+        }
+
+        .cvm-branches {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px
+        }
+
+        .branch-yes {
+            background: #f0fff4;
+            border: 1.5px solid #5dc48a;
+            border-radius: 5px;
+            padding: 10px 12px;
+            display: none
+        }
+
+        .branch-no {
+            background: #fff5f0;
+            border: 1.5px solid #e07050;
+            border-radius: 5px;
+            padding: 10px 12px;
+            display: none
+        }
+
+        .branch-yes.show,
+        .branch-no.show {
+            display: block
+        }
+
+        .branch-lbl {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 5px
+        }
+
+        .branch-q {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 2px
+        }
+
+        .branch-q strong {
+            font-weight: 700
+        }
+
+        .protest-box {
+            display: none;
+            margin-top: 10px;
+            background: #fff5f0;
+            border: 1.5px solid #e07050;
+            border-radius: 5px;
+            padding: 10px 12px
+        }
+
+        .protest-box.show {
+            display: block
+        }
+
+        /* KII & BADGES */
+        .kii-qc {
+            margin-bottom: 14px;
+            padding: 13px 15px;
+            background: #fff;
+            border: 1px solid #e0dbd0;
+            border-left: 3px solid #5dc48a;
+            border-radius: 6px
+        }
+
+        .kii-qn {
+            font-size: 10px;
+            font-weight: 700;
+            color: #5dc48a;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 4px
+        }
+
+        .kii-qt {
+            font-size: 13.5px;
+            color: #1a1a1a;
+            line-height: 1.5;
+            margin-bottom: 2px
+        }
+
+        .probes {
+            padding-left: 16px;
+            margin-bottom: 6px
+        }
+
+        .probes li {
+            font-size: 11.5px;
+            color: #555;
+            margin-bottom: 2px;
+            line-height: 1.5
+        }
+
+        .probes li::marker {
+            color: #5dc48a
+        }
+
+        .badges {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin-top: 7px
+        }
+
+        .badge {
+            font-size: 10px;
+            font-weight: 700;
+            background: #e6f2ea;
+            color: #1b5e30;
+            border: 1px solid #aed4b8;
+            padding: 1px 7px;
+            border-radius: 3px
+        }
+
+        /* CAP BADGES (SLF) */
+        .cap-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-bottom: 8px
+        }
+
+        .cap-h {
+            background: #e8f0ff;
+            color: #1a3a8f
+        }
+
+        .cap-s {
+            background: #fff0e8;
+            color: #8f3a1a
+        }
+
+        .cap-n {
+            background: #eaf5e0;
+            color: #2a6010
+        }
+
+        .cap-p {
+            background: #f5e8ff;
+            color: #5a1a8f
+        }
+
+        .cap-f {
+            background: #fffbe0;
+            color: #7a5c00
+        }
+
+        /* SUBMIT BAR */
+        .submit-bar {
+            position: sticky;
+            bottom: 0;
+            background: #1b3a2d;
+            padding: 12px 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            border-top: 2px solid #0e2318;
+            z-index: 100
+        }
+
+        .btn {
+            padding: 9px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            transition: all 0.15s
+        }
+
+        .btn-save {
+            background: #2d6a4f;
+            color: #fff
+        }
+
+        .btn-save:hover {
+            background: #3a8a65
+        }
+
+        .btn-submit {
+            background: #5dc48a;
+            color: #1b3a2d
+        }
+
+        .btn-submit:hover {
+            background: #4ab878
+        }
+
+        .btn-clear {
+            background: transparent;
+            color: #a8c4b0;
+            border: 1px solid #3a6a50
+        }
+
+        .btn-clear:hover {
+            background: #0e2318;
+            color: #fff
+        }
+
+        .submit-status {
+            font-size: 12px;
+            color: #a8c4b0;
+            font-family: 'Courier New', monospace
+        }
+
+        .submit-status.ok {
+            color: #5dc48a
+        }
+
+        .submit-status.err {
+            color: #ff8a70
+        }
+
+        /* SETUP TAB */
+        .setup-card {
+            background: #fff;
+            border: 1px solid #e0dbd0;
+            border-radius: 6px;
+            padding: 16px 18px;
+            margin-bottom: 16px
+        }
+
+        .setup-card h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1b3a2d;
+            margin-bottom: 8px
+        }
+
+        .url-input {
+            width: 100%;
+            border: 1.5px solid #5dc48a;
+            border-radius: 4px;
+            padding: 7px 11px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #1a1a1a;
+            background: #f0fff4;
+            margin-top: 6px
+        }
+
+        .dict-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 6px 15px;
+            margin-top: 8px;
+            font-size: 12px
+        }
+
+        .dict-col {
+            font-weight: 700;
+            color: #1b5e30;
+            background: #e8f4ed;
+            padding: 2px 6px;
+            border-radius: 3px;
+            display: inline-block
+        }
+
+        /* DEMO GRID */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin-top: 5px
+        }
+
+        .demo-item {
+            background: #f8f6f2;
+            border: 1.5px solid #e0dbd0;
+            border-radius: 4px;
+            padding: 7px 10px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+            transition: all 0.12s;
+            user-select: none
+        }
+
+        .demo-item:hover {
+            border-color: #bf5a3a;
+            background: #fff5f2
+        }
+
+        .demo-item.sel {
+            background: #fff0ec;
+            border-color: #bf5a3a
+        }
+
+        .demo-cb {
+            width: 14px;
+            height: 14px;
+            border: 1.5px solid #bf5a3a;
+            border-radius: 2px;
+            flex-shrink: 0;
+            transition: all 0.12s;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .demo-item.sel .demo-cb {
+            background: #bf5a3a
+        }
+
+        .demo-item.sel .demo-cb::after {
+            content: "✓";
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700
+        }
+
+        .demo-txt {
+            font-size: 12.5px;
+            color: #2a2a2a
+        }
+
+        .prog-bar-wrap {
+            background: #0e2318;
+            height: 3px;
+            width: 100%
+        }
+
+        .prog-bar-fill {
+            height: 3px;
+            background: #5dc48a;
+            transition: width 0.3s
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1b3a2d;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            border: 1px solid #5dc48a
+        }
+
+        .toast.show {
+            opacity: 1
+        }
+
+        @media(max-width:600px) {
+            .demo-grid {
+                grid-template-columns: 1fr
+            }
+
+            .cvm-branches {
+                grid-template-columns: 1fr
+            }
+
+            .wrap {
+                padding: 16px 14px 60px
+            }
+
+            .hdr {
+                padding: 12px 16px
+            }
+
+            .tabs {
+                padding: 0 14px
+            }
+
+            .submit-bar {
+                padding: 10px 14px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hdr">
+        <div class="hdr-left">
+            <h1>Nagar Van Yojana — Live Field Survey</h1>
+            <p>Arkraj Biswas &nbsp;|&nbsp; National CAMPA, MoEFCC</p>
+        </div>
+        <div class="hdr-right">
+            <div class="rid-box">ID: <span class="rid-val" id="rid-display">—</span></div>
+            <div class="rid-box"><span id="ts-display" class="ts-display">—</span></div>
+        </div>
+    </div>
+
+    <div class="meta-bar">
+        <label>Site</label>
+        <select id="meta-site" onchange="setMeta()">
+            <option value="">— Select site —</option>
+            <option value="Sultanabad">Sultanabad NV</option>
+            <option value="Indroda">Indroda Park</option>
+            <option value="Other">Other</option>
+        </select>
+        <label>Type</label>
+        <select id="meta-type" onchange="setMeta()">
+            <option value="Visitor">Visitor</option>
+            <option value="Vendor">Vendor</option>
+            <option value="KII">KII</option>
+        </select>
+        <button class="gps-btn" onclick="getLocation()">📍 Get GPS</button>
+        <span id="loc-display" class="gps-val">Lat/Lon</span>
+    </div>
+    <div class="prog-bar-wrap">
+        <div class="prog-bar-fill" id="global-prog" style="width:0%"></div>
+    </div>
+
+    <div class="tabs">
+        <button class="tb on" onclick="showTab('demo',this)">1. Demographics<span class="prog" id="prog-demo"></span></button>
+        <button class="tb" onclick="showTab('cvm',this)">2. CVM<span class="prog" id="prog-cvm"></span></button>
+        <button class="tb" onclick="showTab('who',this)">3. WHO-5<span class="prog" id="prog-who"></span></button>
+        <button class="tb" onclick="showTab('slf',this)">4. SLF<span class="prog" id="prog-slf"></span></button>
+        <button class="tb" onclick="showTab('pra',this)">5. PRA<span class="prog" id="prog-pra"></span></button>
+        <button class="tb" onclick="showTab('kii',this)">6. KII<span class="prog" id="prog-kii"></span></button>
+        <button class="tb" onclick="showTab('setup',this)">⚙ Config</button>
+    </div>
+
+    <div class="wrap">
+
+        <div id="demo" class="pane on">
+            <div class="pane-title">
+                <h2>Respondent Demographics</h2>
+                <p>Tap again to deselect an option &nbsp;|&nbsp; एक ही विकल्प को दोबारा दबाने पर वह हट जाएगा</p>
+            </div>
+
+            <div class="sec">
+                <div class="sec-hd">Q1 &nbsp; Age Group</div>
+                <div class="qt-hi">आयु वर्ग (Age Group)</div>
+                <div class="demo-grid" id="grp-d_age">
+                    <div class="demo-item" onclick="selDemo('d_age','Below 18',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">Below 18 / 18 से कम</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_age','18–25',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">18–25 years</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_age','26–35',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">26–35 years</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_age','36–50',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">36–50 years</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_age','51–60',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">51–60 years</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_age','Above 60',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">Above 60 / 60 से ऊपर</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sec">
+                <div class="sec-hd">Q2 &nbsp; Gender</div>
+                <div class="qt-hi">लिंग (Gender)</div>
+                <div class="demo-grid" id="grp-d_gender">
+                    <div class="demo-item" onclick="selDemo('d_gender','Male',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">Male / पुरुष</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_gender','Female',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">Female / महिला</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_gender','Other',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">Other / अन्य</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sec">
+                <div class="sec-hd">Q3 &nbsp; Highest Education Completed</div>
+                <div class="qt-hi">उच्चतम शिक्षा (Highest Education)</div>
+                <div class="demo-grid" id="grp-d_edu">
+                    <div class="demo-item" onclick="selDemo('d_edu','None',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">None / कोई शिक्षा नहीं</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_edu','Primary',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">Primary (Class 5) / प्राथमिक</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_edu','Secondary',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">Secondary (10th) / माध्यमिक</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_edu','Higher Sec',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">Higher Sec (12th) / उच्चतर</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_edu','Graduate',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">Graduate / स्नातक</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_edu','Post-grad',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">Post-grad / स्नातकोत्तर</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sec">
+                <div class="sec-hd">Q4 &nbsp; Approx. Monthly Household Income</div>
+                <div class="qt-hi">अनुमानित मासिक आय (Approx. Monthly Income)</div>
+                <div class="demo-grid" id="grp-d_income">
+                    <div class="demo-item" onclick="selDemo('d_income','Below 5k',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">Below ₹5,000</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_income','5k-10k',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">₹5,001 – ₹10,000</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_income','10k-20k',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">₹10,001 – ₹20,000</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_income','20k-50k',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">₹20,001 – ₹50,000</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_income','Above 50k',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">Above ₹50,000</div>
+                    </div>
+                    <div class="demo-item" onclick="selDemo('d_income','Declined',this)">
+                        <div class="demo-cb"></div>
+                        <div class="demo-txt">Declined / बताना नहीं चाहते</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cvm" class="pane">
+            <div class="pane-title">
+                <h2>Double-Bounded CVM</h2>
+            </div>
+
+            <div class="sec">
+                <div class="sec-hd">Step 1 &nbsp; Framing Script</div>
+                <div class="qc" style="background:#fffbee; border-left:3px solid #d4a017;">
+                    <div class="qt" style="font-style:italic">"Imagine a dedicated fund for maintaining this park. It would go towards cleaning, security, and tree planting. This is a hypothetical exercise—no actual payment is required today."</div>
+                    <div class="qt-hi" style="font-style:italic">"कल्पना करें कि इस पार्क के रखरखाव (सफाई, सुरक्षा, पेड़ लगाने) के लिए एक विशेष फंड बनाया जाए। यह एक काल्पनिक अभ्यास है - आज आपको कोई पैसा नहीं देना है।"</div>
+                </div>
+            </div>
+
+            <div class="sec">
+                <div class="sec-hd">Step 2 &nbsp; Initial Bid — ₹20</div>
+                <div class="cvm-frame">
+                    <div class="cvm-q">"Would you be willing to contribute <strong>₹20 per month</strong> towards its maintenance?"</div>
+                    <div class="qt-hi">"क्या आप इस पार्क के रखरखाव के लिए हर महीने <strong>₹20</strong> देने को तैयार होंगे?"</div>
+                    <div class="opts" id="grp-cvm_initial">
+                        <span class="o hl" onclick="selOpt(this,'cvm_initial','Yes')">Yes — willing to pay ₹20 (हाँ)</span>
+                        <span class="o hl" onclick="selOpt(this,'cvm_initial','No')">No — not willing (नहीं)</span>
+                        <span class="o hl" onclick="selOpt(this,'cvm_initial','Not sure')">Not sure (पता नहीं)</span>
+                    </div>
+                </div>
+
+                <div class="cvm-branches">
+                    <div class="branch-yes" id="branch-yes">
+                        <div class="branch-q">"What if the monthly contribution were <strong>₹50</strong> instead?"</div>
+                        <div class="qt-hi">"अगर यह योगदान <strong>₹50</strong> हो, तो क्या आप देंगे?"</div>
+                        <div class="opts" id="grp-cvm_second_yes">
+                            <span class="o sc" onclick="selOpt(this,'cvm_second','Yes50')">Yes (हाँ)</span>
+                            <span class="o sc" onclick="selOpt(this,'cvm_second','No50')">No (नहीं)</span>
+                        </div>
+                    </div>
+                    <div class="branch-no" id="branch-no">
+                        <div class="branch-q">"What about a smaller amount of <strong>₹10 per month</strong>?"</div>
+                        <div class="qt-hi">"क्या आप <strong>₹10 प्रति माह</strong> (एक कप चाय की कीमत) देने को तैयार होंगे?"</div>
+                        <div class="opts" id="grp-cvm_second_no">
+                            <span class="o sc" onclick="selOpt(this,'cvm_second','Yes10')">Yes (हाँ)</span>
+                            <span class="o sc" onclick="selOpt(this,'cvm_second','No10')">No (नहीं)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="protest-box" id="protest-box">
+                    <div class="branch-q">"Could you tell me why you would not pay anything?"</div>
+                    <div class="qt-hi">"आप पैसे क्यों नहीं देना चाहते?"</div>
+                    <div class="opts" id="grp-cvm_protest">
+                        <span class="o warn" onclick="selOpt(this,'cvm_protest','Cannot afford')">Cannot afford (सामर्थ्य नहीं)</span>
+                        <span class="o warn" onclick="selOpt(this,'cvm_protest','Govt job')">Govt should pay (सरकार का काम है)</span>
+                        <span class="o warn" onclick="selOpt(this,'cvm_protest','Dont care')">Don't value park (परवाह नहीं)</span>
+                        <span class="o warn" onclick="selOpt(this,'cvm_protest','No trust')">No trust in fund (फंड पर भरोसा नहीं)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="who" class="pane">
+            <div class="pane-title">
+                <h2>WHO-5 Well-being Index</h2>
+            </div>
+            <p style="font-size:12px; margin-bottom:10px; color:#555">0 = At no time (कभी नहीं) | 5 = All of the time (हर समय)</p>
+
+            <div class="sec">
+                <table class="who-tbl">
+                    <thead>
+                        <tr>
+                            <th>Statement (Last 2 weeks)</th>
+                            <th>0</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>WHO-1.</strong> "I have felt cheerful and in good spirits."<div class="qt-hi" style="margin-top:2px; font-size:11px">"मैं खुश और अच्छे मूड में रहा हूँ।"</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w1',0,this)">0</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w1',1,this)">1</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w1',2,this)">2</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w1',3,this)">3</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w1',4,this)">4</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w1',5,this)">5</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>WHO-2.</strong> "I have felt calm and relaxed."<div class="qt-hi" style="margin-top:2px; font-size:11px">"मैं शांत और तनावमुक्त महसूस कर रहा हूँ।"</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w2',0,this)">0</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w2',1,this)">1</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w2',2,this)">2</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w2',3,this)">3</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w2',4,this)">4</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w2',5,this)">5</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>WHO-3.</strong> "I have felt active and vigorous."<div class="qt-hi" style="margin-top:2px; font-size:11px">"मैं सक्रिय और ऊर्जावान महसूस कर रहा हूँ।"</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w3',0,this)">0</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w3',1,this)">1</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w3',2,this)">2</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w3',3,this)">3</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w3',4,this)">4</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w3',5,this)">5</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>WHO-4.</strong> "I woke up feeling fresh and rested."<div class="qt-hi" style="margin-top:2px; font-size:11px">"मैं सुबह तरोताजा महसूस करते हुए उठा।"</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w4',0,this)">0</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w4',1,this)">1</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w4',2,this)">2</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w4',3,this)">3</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w4',4,this)">4</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w4',5,this)">5</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>WHO-5.</strong> "My daily life has been filled with things that interest me."<div class="qt-hi" style="margin-top:2px; font-size:11px">"मेरा दैनिक जीवन मेरी रुचि की चीजों से भरा रहा है।"</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w5',0,this)">0</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w5',1,this)">1</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w5',2,this)">2</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w5',3,this)">3</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w5',4,this)">4</div>
+                            </td>
+                            <td>
+                                <div class="who-cell" onclick="selWho('w5',5,this)">5</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="who-score-bar">
+                    <span class="who-score-num" id="who-score-display">—</span>
+                    <span class="who-interp" id="who-interp-display">Score will calculate automatically</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="slf" class="pane">
+            <div class="pane-title">
+                <h2>SLF — Five Capitals Assessment</h2>
+            </div>
+
+            <div class="sec">
+                <span class="cap-badge cap-h">Human Capital</span>
+                <div class="qc">
+                    <div class="qn">SLF-H1</div>
+                    <div class="qt">Have you received any training or environmental education related to this park?</div>
+                    <div class="qt-hi">क्या आपको इस पार्क से जुड़ा कोई प्रशिक्षण मिला है?</div>
+                    <div class="opts" id="grp-s_h1">
+                        <span class="o" onclick="selOpt(this,'s_h1','Formal')">Formal (औपचारिक)</span>
+                        <span class="o" onclick="selOpt(this,'s_h1','Informal')">Informal (अनौपचारिक)</span>
+                        <span class="o" onclick="selOpt(this,'s_h1','None')">None (कोई नहीं)</span>
+                    </div>
+                </div>
+                <div class="qc">
+                    <div class="qn">SLF-H2</div>
+                    <div class="qt">Have you noticed any improvement in physical health (better breathing, exercise)?</div>
+                    <div class="qt-hi">क्या आपने अपने स्वास्थ्य (सांस, व्यायाम) में सुधार देखा है?</div>
+                    <div class="opts" id="grp-s_h2">
+                        <span class="o" onclick="selOpt(this,'s_h2','Improved')">Improved (सुधार)</span>
+                        <span class="o" onclick="selOpt(this,'s_h2','No change')">No change (कोई बदलाव नहीं)</span>
+                        <span class="o warn" onclick="selOpt(this,'s_h2','Worsened')">Worsened (खराब)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sec">
+                <span class="cap-badge cap-s">Social Capital</span>
+                <div class="qc">
+                    <div class="qn">SLF-S1</div>
+                    <div class="qt">Has this park helped you build new relationships useful for work/life?</div>
+                    <div class="qt-hi">क्या इस पार्क ने आपको नए और उपयोगी संबंध बनाने में मदद की है?</div>
+                    <div class="opts" id="grp-s_s1">
+                        <span class="o" onclick="selOpt(this,'s_s1','Yes significantly')">Yes (हाँ)</span>
+                        <span class="o" onclick="selOpt(this,'s_s1','A few')">A few (कुछ)</span>
+                        <span class="o" onclick="selOpt(this,'s_s1','None')">None (कोई नहीं)</span>
+                    </div>
+                </div>
+                <div class="qc">
+                    <div class="qn">SLF-S2</div>
+                    <div class="qt">Do people near the park work together to protect or clean it?</div>
+                    <div class="qt-hi">क्या लोग इस पार्क की सुरक्षा या सफाई के लिए मिलकर काम करते हैं?</div>
+                    <div class="opts" id="grp-s_s2">
+                        <span class="o" onclick="selOpt(this,'s_s2','Strong collective action')">Yes (हाँ, मिलकर)</span>
+                        <span class="o" onclick="selOpt(this,'s_s2','Sometimes')">Sometimes (कभी-कभी)</span>
+                        <span class="o" onclick="selOpt(this,'s_s2','Rarely')">Rarely (शायद ही कभी)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sec">
+                <span class="cap-badge cap-n">Natural Capital</span>
+                <div class="qc">
+                    <div class="qn">SLF-N1</div>
+                    <div class="qt">Have you noticed environmental improvement (cleaner air, cooler temp, birds)?</div>
+                    <div class="qt-hi">क्या आपने पर्यावरण (हवा, पक्षी, ठंडक) में सुधार देखा है?</div>
+                    <div class="opts" id="grp-s_n1">
+                        <span class="o" onclick="selOpt(this,'s_n1','Clear improvement')">Yes, clear (हाँ, स्पष्ट)</span>
+                        <span class="o" onclick="selOpt(this,'s_n1','Slight improvement')">Slight (थोड़ा)</span>
+                        <span class="o" onclick="selOpt(this,'s_n1','No change')">No change (कोई बदलाव नहीं)</span>
+                    </div>
+                </div>
+                <div class="qc">
+                    <div class="qn">SLF-N2</div>
+                    <div class="qt">Do you directly use resources from here (shade, medicinal plants, fodder)?</div>
+                    <div class="qt-hi">क्या आप यहाँ के संसाधनों (छाया, जड़ी-बूटियाँ, चारा) का उपयोग करते हैं?</div>
+                    <div class="opts" id="grp-s_n2">
+                        <span class="o" onclick="selOpt(this,'s_n2','Regularly')">Regularly (नियमित)</span>
+                        <span class="o" onclick="selOpt(this,'s_n2','Occasionally')">Occasionally (कभी-कभी)</span>
+                        <span class="o" onclick="selOpt(this,'s_n2','No direct use')">No (नहीं)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sec">
+                <span class="cap-badge cap-p">Physical Capital</span>
+                <div class="qc">
+                    <div class="qn">SLF-P1</div>
+                    <div class="qt">Has park infrastructure (paths, lights, water) improved your daily comfort/work?</div>
+                    <div class="qt-hi">क्या यहाँ की सुविधाओं (रास्ते, लाइट, पानी) से आपको आसानी हुई है?</div>
+                    <div class="opts" id="grp-s_p1">
+                        <span class="o" onclick="selOpt(this,'s_p1','Significantly')">Significantly (काफी)</span>
+                        <span class="o" onclick="selOpt(this,'s_p1','Somewhat')">Somewhat (थोड़ा)</span>
+                        <span class="o" onclick="selOpt(this,'s_p1','No difference')">No difference (कोई फर्क नहीं)</span>
+                    </div>
+                </div>
+                <div class="qc">
+                    <div class="qn">SLF-P2</div>
+                    <div class="qt">Do you have a designated/proper space to conduct your business here?</div>
+                    <div class="qt-hi">क्या यहाँ काम करने/व्यापार के लिए आपके पास तय जगह है?</div>
+                    <div class="opts" id="grp-s_p2">
+                        <span class="o" onclick="selOpt(this,'s_p2','Official space')">Official (आधिकारिक जगह)</span>
+                        <span class="o" onclick="selOpt(this,'s_p2','Informal space')">Informal (अनौपचारिक)</span>
+                        <span class="o" onclick="selOpt(this,'s_p2','No fixed space')">None (कोई तय जगह नहीं)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sec">
+                <span class="cap-badge cap-f">Financial Capital</span>
+                <div class="qc">
+                    <div class="qn">SLF-F1</div>
+                    <div class="qt">Has your daily/monthly income increased since the park was developed?</div>
+                    <div class="qt-hi">क्या इस पार्क के बनने से आपकी आय (कमाई) बढ़ी है?</div>
+                    <div class="opts" id="grp-s_f1">
+                        <span class="o" onclick="selOpt(this,'s_f1','Increased >30%')">Increased >30% (काफी बढ़ी)</span>
+                        <span class="o" onclick="selOpt(this,'s_f1','Increased 10-30%')">Increased 10-30% (थोड़ी बढ़ी)</span>
+                        <span class="o" onclick="selOpt(this,'s_f1','No change')">No change (कोई बदलाव नहीं)</span>
+                        <span class="o warn" onclick="selOpt(this,'s_f1','Decreased')">Decreased (कम हुई)</span>
+                    </div>
+                </div>
+                <div class="qc">
+                    <div class="qn">SLF-F2</div>
+                    <div class="qt">Do you have access to credit/savings schemes connected to your work here?</div>
+                    <div class="qt-hi">क्या आपको यहाँ के काम से जुड़ी किसी बचत या लोन योजना का लाभ मिलता है?</div>
+                    <div class="opts" id="grp-s_f2">
+                        <span class="o" onclick="selOpt(this,'s_f2','Govt scheme')">Govt Scheme (सरकारी योजना)</span>
+                        <span class="o" onclick="selOpt(this,'s_f2','NGO / SHG')">NGO/SHG (संस्था)</span>
+                        <span class="o" onclick="selOpt(this,'s_f2','None')">None (नहीं)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pra" class="pane">
+            <div class="pane-title">
+                <h2>PRA — Transect Walk & Site Checklist</h2>
+                <p>Researcher Only (English) | Record observations while walking.</p>
+            </div>
+
+            <div class="sec">
+                <div class="sec-hd">Zone A: Boundary & Land Use (SO3)</div>
+                <div class="qc">
+                    <div class="qn">PRA-A1</div>
+                    <div class="qt">Does the physical boundary match the official KML file?</div>
+                    <div class="opts" id="grp-pra_a1">
+                        <span class="o" onclick="selOpt(this,'pra_a1','Yes - Matches')">Yes - Matches</span>
+                        <span class="o" onclick="selOpt(this,'pra_a1','Partial Match')">Partial Match</span>
+                        <span class="o warn" onclick="selOpt(this,'pra_a1','No - Discrepancy')">No - Discrepancy</span>
+                    </div>
+                    <textarea class="ta" oninput="R.pra_a1_note=this.value;updateProgress()" placeholder="Note GPS coords of discrepancy..."></textarea>
+                </div>
+                <div class="qc">
+                    <div class="qn">PRA-A2</div>
+                    <div class="qt">Are there any encroachments or illegal structures within the park?</div>
+                    <div class="opts" id="grp-pra_a2">
+                        <span class="o" onclick="selOpt(this,'pra_a2','No Encroachments')">No Encroachments</span>
+                        <span class="o warn" onclick="selOpt(this,'pra_a2','Yes - Minor')">Yes - Minor</span>
+                        <span class="o warn" onclick="selOpt(this,'pra_a2','Yes - Major')">Yes - Major</span>
+                    </div>
+                    <textarea class="ta" oninput="R.pra_a2_note=this.value;updateProgress()" placeholder="Describe type and extent..."></textarea>
+                </div>
+                <div class="qc">
+                    <div class="qn">PRA-A3</div>
+                    <div class="qt">Visual consistency of area size (Estimated vs Reported ha)</div>
+                    <textarea class="ta" oninput="R.pra_a3=this.value;updateProgress()" placeholder="E.g., Est: 2ha | Reported: 5ha"></textarea>
+                </div>
+            </div>
+
+            <div class="sec">
+                <div class="sec-hd">Zone B: Vegetation & Tree Survival (SO3)</div>
+                <div class="qc">
+                    <div class="qn">PRA-B1</div>
+                    <div class="qt">Visual canopy cover estimate (%)</div>
+                    <textarea class="ta" oninput="R.pra_b1=this.value;updateProgress()" placeholder="E.g., ~30% canopy cover."></textarea>
+                </div>
+                <div class="qc">
+                    <div class="qn">PRA-B2</div>
+                    <div class="qt">Plant health & survival estimate</div>
+                    <textarea class="ta" oninput="R.pra_b2=this.value;updateProgress()" placeholder="E.g., ~70% survival, signs of watering issues..."></textarea>
+                </div>
+                <div class="qc">
+                    <div class="qn">PRA-B3</div>
+                    <div class="qt">Dominant species observed (Native vs Invasive)</div>
+                    <textarea class="ta" oninput="R.pra_b3=this.value;updateProgress()" placeholder="List 3-4 dominant species..."></textarea>
+                </div>
+                <div class="qc">
+                    <div class="qn">PRA-B4</div>
+                    <div class="qt">Condition of water harvesting structures</div>
+                    <div class="opts" id="grp-pra_b4">
+                        <span class="o" onclick="selOpt(this,'pra_b4','Functional')">Functional</span>
+                        <span class="o" onclick="selOpt(this,'pra_b4','Dry')">Dry</span>
+                        <span class="o warn" onclick="selOpt(this,'pra_b4','Under repair / Broken')">Under repair / Broken</span>
+                        <span class="o" onclick="selOpt(this,'pra_b4','Absent')">Absent</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sec">
+                <div class="sec-hd">Zone C: Infrastructure & Accessibility (SO1)</div>
+                <div class="qc">
+                    <div class="qn">PRA-C1</div>
+                    <div class="qt">Condition of pathways, benches, lighting, signage</div>
+                    <div class="opts" id="grp-pra_c1">
+                        <span class="o" onclick="selOpt(this,'pra_c1','Good')">Good</span>
+                        <span class="o" onclick="selOpt(this,'pra_c1','Fair')">Fair</span>
+                        <span class="o warn" onclick="selOpt(this,'pra_c1','Poor')">Poor</span>
+                    </div>
+                    <textarea class="ta" oninput="R.pra_c1_note=this.value;updateProgress()" placeholder="Note missing or damaged elements..."></textarea>
+                </div>
+                <div class="qc">
+                    <div class="qn">PRA-C2</div>
+                    <div class="qt">Is the park accessible to differently-abled visitors?</div>
+                    <div class="opts" id="grp-pra_c2">
+                        <span class="o" onclick="selOpt(this,'pra_c2','Yes')">Yes</span>
+                        <span class="o" onclick="selOpt(this,'pra_c2','Partial')">Partial</span>
+                        <span class="o warn" onclick="selOpt(this,'pra_c2','No')">No</span>
+                    </div>
+                </div>
+                <div class="qc">
+                    <div class="qn">PRA-C3</div>
+                    <div class="qt">Visible NVY scheme display board?</div>
+                    <div class="opts" id="grp-pra_c3">
+                        <span class="o" onclick="selOpt(this,'pra_c3','Yes')">Yes</span>
+                        <span class="o warn" onclick="selOpt(this,'pra_c3','No')">No</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sec">
+                <div class="sec-hd">Zone D: Community & Livelihoods (SO2)</div>
+                <div class="qc">
+                    <div class="qn">PRA-D1</div>
+                    <div class="qt">Informal vendors present? (Number & type)</div>
+                    <textarea class="ta" oninput="R.pra_d1=this.value;updateProgress()" placeholder="E.g., ~5 vendors (tea, snacks, toys)"></textarea>
+                </div>
+                <div class="qc">
+                    <div class="qn">PRA-D2</div>
+                    <div class="qt">Demographics of users present</div>
+                    <textarea class="ta" oninput="R.pra_d2=this.value;updateProgress()" placeholder="E.g., 40% elderly, 30% kids. Mostly male."></textarea>
+                </div>
+                <div class="qc">
+                    <div class="qn">PRA-D3</div>
+                    <div class="qt">Evidence of active community involvement (Notice boards, eco-club)</div>
+                    <div class="opts" id="grp-pra_d3">
+                        <span class="o" onclick="selOpt(this,'pra_d3','Yes')">Yes</span>
+                        <span class="o" onclick="selOpt(this,'pra_d3','Partial')">Partial</span>
+                        <span class="o warn" onclick="selOpt(this,'pra_d3','No')">No</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sec">
+                <div class="sec-hd">Zone E: Field Impression & Media File Sync</div>
+                <div class="qc">
+                    <div class="qn">PRA-E1: Overall Field Note</div>
+                    <textarea class="ta" oninput="R.pra_e1=this.value;updateProgress()" placeholder="Overall condition, atmosphere, striking observations..." style="min-height:80px"></textarea>
+                </div>
+                <div class="qc" style="background:#f0f8ff; border-color:#b8d8e0">
+                    <div class="qn" style="color:#2a7a9a">Media Captures (Files stay on device, names sync to sheet)</div>
+                    <div class="media-box">
+                        <label class="media-btn">📷 Take Photo
+                            <input type="file" accept="image/*" capture="environment" class="media-input" onchange="handleMedia(this, 'photo')">
+                        </label>
+                        <span id="photo-status" style="font-size:11px; color:#2d6a4f; align-self:center"></span>
+                    </div>
+                    <div class="media-box">
+                        <label class="media-btn">🎤 Record Audio
+                            <input type="file" accept="audio/*" capture="microphone" class="media-input" onchange="handleMedia(this, 'audio')">
+                        </label>
+                        <span id="audio-status" style="font-size:11px; color:#2d6a4f; align-self:center"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="kii" class="pane">
+            <div class="pane-title">
+                <h2>KII Guide</h2>
+                <p>For Officials / Managers</p>
+            </div>
+            <div class="sec">
+                <div class="kii-qc">
+                    <div class="kii-qn">KII-1 | Governance & PPP Structure</div>
+                    <div class="kii-qt">"How are responsibilities of the ULB, Forest Dept, and CSR divided? Is there an MoU?"</div>
+                    <textarea class="ta" oninput="R.kii_q1=this.value;updateProgress()" placeholder="Notes..."></textarea>
+                </div>
+                <div class="kii-qc">
+                    <div class="kii-qn">KII-2 | Operational PPP Efficacy</div>
+                    <div class="kii-qt">"How well does this PPP model work day-to-day? What happens if a partner fails?"</div>
+                    <textarea class="ta" oninput="R.kii_q2=this.value;updateProgress()" placeholder="Notes..."></textarea>
+                </div>
+                <div class="kii-qc">
+                    <div class="kii-qn">KII-3 | Management Challenges</div>
+                    <div class="kii-qt">"What are the biggest challenges in managing this Nagar Van? (Staffing, budget, etc.)"</div>
+                    <textarea class="ta" oninput="R.kii_q3=this.value;updateProgress()" placeholder="Notes..."></textarea>
+                </div>
+                <div class="kii-qc">
+                    <div class="kii-qn">KII-4 | NAEB/PMU Reporting</div>
+                    <div class="kii-qt">"What does your quarterly report actually measure? Are survival rates/KML accurate?"</div>
+                    <textarea class="ta" oninput="R.kii_q4=this.value;updateProgress()" placeholder="Notes..."></textarea>
+                </div>
+                <div class="kii-qc">
+                    <div class="kii-qn">KII-5 | e-Green Watch & KPI Gaps</div>
+                    <div class="kii-qt">"What outcomes (health, livelihoods, heat) are NOT captured in current monitoring?"</div>
+                    <textarea class="ta" oninput="R.kii_q5=this.value;updateProgress()" placeholder="Notes..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div id="setup" class="pane">
+            <div class="pane-title">
+                <h2>Configuration</h2>
+            </div>
+
+            <div class="setup-card">
+                <h3>Paste Web App URL Below</h3>
+                <input type="url" class="url-input" id="sheets-url" placeholder="https://script.google.com/macros/s/.../exec" oninput="saveUrl(this.value)">
+                <div style="margin-top:12px;padding:8px;border-radius:5px;font-size:12px;" id="url-status"></div>
+            </div>
+
+            <div class="setup-card">
+                <h3>What Gets Recorded in the Sheet</h3>
+                <div class="dict-grid">
+                    <div class="dict-col">timestamp / id / lat / lon</div>
+                    <div>Metadata & GPS location</div>
+                    <div class="dict-col">site / survey_type</div>
+                    <div>Dropdown selections</div>
+                    <div class="dict-col">d_age → d_income</div>
+                    <div>Demographics</div>
+                    <div class="dict-col">cvm_initial → protest</div>
+                    <div>CVM WTP Responses</div>
+                    <div class="dict-col">w1 → w5 / who_score</div>
+                    <div>WHO-5 Wellbeing</div>
+                    <div class="dict-col">s_h1 → s_f2</div>
+                    <div>10 SLF Capital variables</div>
+                    <div class="dict-col">pra_a1 → pra_e1</div>
+                    <div>14 PRA checklist items & notes</div>
+                    <div class="dict-col">photo_file / audio_file</div>
+                    <div>Media filenames</div>
+                    <div class="dict-col">kii_q1 → kii_q5</div>
+                    <div>5 KII Official interview variables</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="submit-bar">
+        <button class="btn btn-save" onclick="saveLocal()">💾 Save Draft</button>
+        <button class="btn btn-submit" onclick="submitToSheets()">▶ Submit</button>
+        <button class="btn btn-clear" onclick="clearForm()">↺ Clear</button>
+        <span class="submit-status" id="submit-status">Ready.</span>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // ─── DATA OBJECT ───
+        var R = {
+            timestamp: '',
+            respondent_id: '',
+            lat: '',
+            lon: '',
+            site: '',
+            survey_type: '',
+            d_age: '',
+            d_gender: '',
+            d_edu: '',
+            d_income: '',
+            cvm_initial: '',
+            cvm_second: '',
+            cvm_protest: '',
+            w1: '',
+            w2: '',
+            w3: '',
+            w4: '',
+            w5: '',
+            who_score: '',
+            s_h1: '',
+            s_h2: '',
+            s_s1: '',
+            s_s2: '',
+            s_n1: '',
+            s_n2: '',
+            s_p1: '',
+            s_p2: '',
+            s_f1: '',
+            s_f2: '',
+            pra_a1: '',
+            pra_a1_note: '',
+            pra_a2: '',
+            pra_a2_note: '',
+            pra_a3: '',
+            pra_b1: '',
+            pra_b2: '',
+            pra_b3: '',
+            pra_b4: '',
+            pra_c1: '',
+            pra_c1_note: '',
+            pra_c2: '',
+            pra_c3: '',
+            pra_d1: '',
+            pra_d2: '',
+            pra_d3: '',
+            pra_e1: '',
+            photo_file: '',
+            audio_file: '',
+            kii_q1: '',
+            kii_q2: '',
+            kii_q3: '',
+            kii_q4: '',
+            kii_q5: ''
+        };
+
+        window.onload = function() {
+            genId();
+            setTimestamp();
+            loadUrl();
+            loadDraft();
+        };
+
+        function genId() {
+            var d = new Date();
+            var id = 'NVY-' + d.getFullYear().toString().slice(2) + pad(d.getMonth() + 1) + pad(d.getDate()) + '-' + Math.floor(1000 + Math.random() * 9000);
+            R.respondent_id = id;
+            document.getElementById('rid-display').textContent = id;
+        }
+
+        function pad(n) {
+            return n < 10 ? '0' + n : n;
+        }
+
+        function setTimestamp() {
+            var d = new Date();
+            var ts = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+            R.timestamp = ts;
+            document.getElementById('ts-display').textContent = ts;
+        }
+
+        function setMeta() {
+            R.site = document.getElementById('meta-site').value;
+            R.survey_type = document.getElementById('meta-type').value;
+        }
+
+        // ─── GEOLOCATION ───
+        function getLocation() {
+            var display = document.getElementById('loc-display');
+            display.textContent = "Locating...";
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(pos) {
+                    R.lat = pos.coords.latitude.toFixed(5);
+                    R.lon = pos.coords.longitude.toFixed(5);
+                    display.textContent = R.lat + ", " + R.lon;
+                    showToast("GPS Location Captured");
+                }, function(err) {
+                    display.textContent = "GPS Error";
+                    alert("Please enable GPS/Location services.");
+                }, {
+                    enableHighAccuracy: true
+                });
+            } else {
+                display.textContent = "Not Supported";
+            }
+        }
+
+        // ─── MEDIA HANDLING ───
+        function handleMedia(input, type) {
+            if (input.files && input.files[0]) {
+                var file = input.files[0];
+                if (type === 'photo') {
+                    R.photo_file = file.name;
+                    document.getElementById('photo-status').textContent = "✓ Captured";
+                }
+                if (type === 'audio') {
+                    R.audio_file = file.name;
+                    document.getElementById('audio-status').textContent = "✓ Recorded";
+                }
+            }
+        }
+
+        // ─── TOGGLE SELECTIONS ───
+        function selOpt(el, field, value) {
+            var isSelected = el.classList.contains('sel');
+            var grp = document.getElementById('grp-' + field) || el.parentNode;
+            grp.querySelectorAll('.o').forEach(function(o) {
+                o.classList.remove('sel');
+            });
+
+            if (isSelected) {
+                R[field] = '';
+                if (field === 'cvm_initial') cvmBranch('clear');
+            } else {
+                el.classList.add('sel');
+                R[field] = value;
+                if (field === 'cvm_initial') {
+                    if (value.includes('Yes')) cvmBranch('yes');
+                    else if (value.includes('No')) cvmBranch('no');
+                    else cvmBranch('unsure');
+                }
+            }
+            if (el.closest('.qc')) el.closest('.qc').classList.add('answered');
+            updateProgress();
+        }
+
+        function selDemo(field, value, el) {
+            var isSelected = el.classList.contains('sel');
+            var grp = document.getElementById('grp-' + field);
+            grp.querySelectorAll('.demo-item').forEach(function(i) {
+                i.classList.remove('sel');
+            });
+
+            if (isSelected) {
+                R[field] = '';
+            } else {
+                el.classList.add('sel');
+                R[field] = value;
+            }
+            updateProgress();
+        }
+
+        function selWho(field, value, el) {
+            var isSelected = el.classList.contains('sel');
+            var row = el.closest('tr');
+            row.querySelectorAll('.who-cell').forEach(function(c) {
+                c.classList.remove('sel');
+            });
+
+            if (isSelected) {
+                R[field] = '';
+            } else {
+                el.classList.add('sel');
+                R[field] = value;
+            }
+            calcWho();
+            updateProgress();
+        }
+
+        // ─── LOGIC & MATH ───
+        function cvmBranch(resp) {
+            document.getElementById('branch-yes').classList.remove('show');
+            document.getElementById('branch-no').classList.remove('show');
+            document.getElementById('protest-box').classList.remove('show');
+
+            R.cvm_second = '';
+            R.cvm_protest = '';
+            document.querySelectorAll('.cvm-branches .o, .protest-box .o').forEach(function(o) {
+                o.classList.remove('sel');
+            });
+
+            if (resp === 'yes') document.getElementById('branch-yes').classList.add('show');
+            if (resp === 'no') {
+                document.getElementById('branch-no').classList.add('show');
+                document.getElementById('protest-box').classList.add('show');
+            }
+        }
+
+        function calcWho() {
+            var fields = ['w1', 'w2', 'w3', 'w4', 'w5'];
+            var raw = 0,
+                filled = 0;
+            fields.forEach(function(f) {
+                if (R[f] !== '') {
+                    raw += parseInt(R[f]);
+                    filled++;
+                }
+            });
+            if (filled === 5) {
+                var pct = raw * 4;
+                R.who_score = pct;
+                document.getElementById('who-score-display').textContent = pct + '/100';
+                document.getElementById('who-interp-display').textContent = pct <= 50 ? '⚠ Below average' : '✓ Good well-being';
+            } else {
+                document.getElementById('who-score-display').textContent = filled > 0 ? filled + '/5' : '—';
+                document.getElementById('who-interp-display').textContent = 'Score will calculate automatically';
+            }
+        }
+
+        function updateProgress() {
+            var t = 0,
+                c = 0;
+            for (var key in R) {
+                if (['timestamp', 'respondent_id', 'site', 'survey_type', 'who_score', 'lat', 'lon', 'photo_file', 'audio_file'].includes(key)) continue;
+                t++;
+                if (R[key] !== '') c++;
+            }
+            document.getElementById('global-prog').style.width = Math.round((c / t) * 100) + '%';
+        }
+
+        function showTab(id, btn) {
+            document.querySelectorAll('.pane').forEach(function(p) {
+                p.classList.remove('on');
+            });
+            document.querySelectorAll('.tb').forEach(function(b) {
+                b.classList.remove('on');
+            });
+            document.getElementById(id).classList.add('on');
+            btn.classList.add('on');
+            window.scrollTo(0, 0);
+        }
+
+        // ─── SAVING / SUBMITTING ───
+        function submitToSheets() {
+            var url = document.getElementById('sheets-url').value.trim();
+            if (!url) return showToast('⚠ Config: Missing Web App URL!');
+
+            setTimestamp();
+            var btn = document.querySelector('.btn-submit');
+            btn.textContent = "⏳ Sending...";
+
+            fetch(url, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(R)
+                })
+                .then(function() {
+                    btn.textContent = "▶ Submit";
+                    showToast('✓ Saved to Google Sheets!');
+                    saveLocal();
+                }).catch(function(e) {
+                    btn.textContent = "▶ Submit";
+                    showToast('✗ Error saving');
+                });
+        }
+
+        function clearForm() {
+            if (!confirm('Start new survey?')) return;
+            var oldUrl = document.getElementById('sheets-url').value;
+            var oldSite = R.site,
+                oldType = R.survey_type;
+
+            for (var k in R) R[k] = '';
+            document.querySelectorAll('.sel').forEach(function(o) {
+                o.classList.remove('sel');
+            });
+            document.querySelectorAll('.answered').forEach(function(q) {
+                q.classList.remove('answered');
+            });
+            document.querySelectorAll('.ta').forEach(function(t) {
+                t.value = '';
+            });
+            document.getElementById('photo-status').textContent = '';
+            document.getElementById('audio-status').textContent = '';
+            document.getElementById('loc-display').textContent = 'Lat/Lon';
+
+            cvmBranch('clear');
+            calcWho();
+            document.getElementById('sheets-url').value = oldUrl;
+            R.site = oldSite;
+            R.survey_type = oldType;
+
+            genId();
+            setTimestamp();
+            updateProgress();
+            showToast('Form Cleared');
+        }
+
+        function saveLocal() {
+            try {
+                localStorage.setItem('nvy_draft', JSON.stringify(R));
+                showToast('Draft saved');
+            } catch (e) {}
+        }
+
+        function loadDraft() {
+            try {
+                var draft = localStorage.getItem('nvy_draft');
+                if (draft) {
+                    var d = JSON.parse(draft);
+                    if (d.site) {
+                        R.site = d.site;
+                        document.getElementById('meta-site').value = d.site;
+                    }
+                    if (d.survey_type) {
+                        R.survey_type = d.survey_type;
+                        document.getElementById('meta-type').value = d.survey_type;
+                    }
+                }
+            } catch (e) {}
+        }
+
+        function saveUrl(url) {
+            try {
+                localStorage.setItem('nvy_sheets_url', url);
+                var el = document.getElementById('url-status');
+                if (url.includes('script.google.com')) {
+                    el.style.background = '#f0fff4';
+                    el.style.color = '#1b5e30';
+                    el.textContent = '✓ Configured';
+                } else {
+                    el.style.background = '#fff8e8';
+                    el.style.color = '#7a4a00';
+                    el.textContent = '⚠ Missing script.google.com';
+                }
+            } catch (e) {}
+        }
+
+        function loadUrl() {
+            try {
+                var url = localStorage.getItem('nvy_sheets_url');
+                if (url) saveUrl(url);
+            } catch (e) {}
+        }
+
+        function showToast(msg) {
+            var t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(function() {
+                t.classList.remove('show');
+            }, 2500);
+        }
+    </script>
+</body>
+
+</html>
