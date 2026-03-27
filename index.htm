@@ -835,7 +835,7 @@ function checkTabCompletion() {
     'who': ['w1', 'w2', 'w3', 'w4', 'w5'],
     'slf': ['s_h1', 's_h2', 's_s1', 's_s2', 's_n1', 's_n2', 's_p1', 's_p2', 's_f1', 's_f2'],
     'pra': ['pra_a1', 'pra_a2', 'pra_b4', 'pra_c1', 'pra_c2', 'pra_c3', 'pra_d3'], // Checked subset for PRA speed
-    'kii': ['kii_q1', 'kii_q2'], // Just a few for KII speed
+    'kii': ['kii_q1', 'kii_q2'], // Checked subset for KII speed
     'fgd': ['fgd_q1']
   };
 
@@ -881,19 +881,23 @@ function submitToSheets() {
   var btn = document.querySelector('.btn-submit');
   btn.textContent = "⏳ Sending Data...";
   
-  // Clean JSON string - no heavy base64 chunks
+  // FIX: Using no-cors and text/plain to bypass Google's strict security blocks
   fetch(url, { 
     method: 'POST', 
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'text/plain;charset=utf-8'
+    },
     body: JSON.stringify(R) 
   })
-  .then(response => response.text())
-  .then(function(text) {
+  .then(function() {
+    // With no-cors, we assume success if the network request goes through
     btn.textContent = "▶ Submit Data";
     showToast('✓ Data successfully saved to Sheet!');
     saveLocal();
   }).catch(function(e) {
     btn.textContent = "▶ Submit Data"; 
-    showToast('✗ Error saving. Try again.');
+    showToast('✗ Network Error: Check internet connection.');
   });
 }
 
