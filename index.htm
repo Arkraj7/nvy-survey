@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NVY Field Survey — Arkraj Biswas | National CAMPA</title>
+<title>NVY Field Survey — Arkraj Biswas</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0eb}
@@ -25,23 +25,19 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 .ts-display{font-size:11px;color:#5dc48a;font-family:'Courier New',monospace}
 
 /* TABS */
-.tabs{display:flex;background:#122b1e;padding:0 28px;flex-wrap:wrap}
-.tb{padding:9px 12px;font-size:11.5px;font-weight:700;color:#6aaa85;border:none;background:transparent;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;position:relative}
+.tabs{display:flex;background:#122b1e;padding:0 28px;flex-wrap:wrap;border-bottom:1px solid #0a170f}
+.tb{padding:10px 12px;font-size:11.5px;font-weight:700;color:#6aaa85;border:none;background:transparent;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all 0.2s}
 .tb.on{color:#fff;border-bottom-color:#5dc48a}
 .tb:hover:not(.on){color:#b5d8c0}
-.tb .prog{position:absolute;top:3px;right:3px;width:7px;height:7px;border-radius:50%;background:#888}
-.tb .prog.full{background:#5dc48a}
-.tb .prog.part{background:#d4a017}
+.tb.completed{color:#fff;background:#2d6a4f;border-bottom-color:#1b3a2d;border-radius:4px 4px 0 0}
+.tb.completed::after{content:" ✓";font-size:11px}
 
 /* WRAP & SECTION */
 .wrap{max-width:860px;margin:0 auto;padding:24px 28px 60px}
 .pane{display:none}.pane.on{display:block}
 .sec{margin-bottom:24px}
 .sec-hd{font-size:12px;font-weight:700;color:#fff;background:#1b3a2d;padding:5px 12px;border-radius:4px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.sec-sub{font-size:10px;font-weight:400;background:rgba(255,255,255,0.15);padding:1px 7px;border-radius:3px}
-.note{background:#fffbee;border-left:3px solid #c9980e;padding:8px 12px;border-radius:0 4px 4px 0;margin-bottom:16px;font-size:12px;color:#5a4208;line-height:1.6}
 .pane-title{margin-bottom:16px}
-.pane-title .pill{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#1b3a2d;background:#c8e8d0;padding:3px 9px;border-radius:3px;margin-bottom:5px}
 .pane-title h2{font-size:17px;font-weight:700;color:#1b3a2d;margin-bottom:2px;font-family:Georgia,serif}
 .pane-title p{font-size:12px;color:#666}
 
@@ -60,19 +56,14 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 .o:hover{background:#d8f0e4;border-color:#5dc48a}
 .o.sel{background:#1b3a2d;color:#fff;border-color:#1b3a2d}
 .o.sc{background:#f0eeff;color:#2a1a7a;border-color:#b8aee0}
-.o.sc:hover{background:#ddd8ff}
 .o.sc.sel{background:#2d1f6e;color:#fff;border-color:#2d1f6e}
-.o.hl{background:#fff8e8;color:#7a4a00;border-color:#d4a017}
-.o.hl:hover{background:#fff0c8}
-.o.hl.sel{background:#c9870a;color:#fff;border-color:#c9870a}
 .o.warn{background:#fff0ed;color:#8a2200;border-color:#e09080}
 .o.warn.sel{background:#c03010;color:#fff;border-color:#c03010}
 
 /* TEXT AREA & MEDIA */
 .ta{width:100%;border:1.5px solid #e0dbd0;border-radius:5px;padding:8px 11px;font-family:Arial,sans-serif;font-size:13px;color:#1a1a1a;resize:vertical;min-height:40px;background:#fafaf8;margin-top:5px}
 .ta:focus{outline:none;border-color:#5dc48a;background:#fff}
-.ta-label{font-size:11px;color:#888;margin-bottom:3px}
-.media-box{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+.media-box{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;align-items:center}
 .media-btn{background:#e8e8e8;border:1px solid #ccc;padding:6px 12px;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px}
 .media-btn:hover{background:#ddd}
 .media-input{display:none}
@@ -85,7 +76,6 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 .who-tbl td:first-child{text-align:left;color:#1a1a1a;font-size:13px}
 .who-tbl tr:nth-child(even) td{background:#f8f6ff}
 .who-cell{width:28px;height:28px;border-radius:50%;border:1.5px solid #b8aee0;background:#f0eeff;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#4a3aaa;transition:all 0.12s;margin:0 auto}
-.who-cell:hover{background:#ddd8ff;border-color:#6a5acc}
 .who-cell.sel{background:#2d1f6e;color:#fff;border-color:#2d1f6e}
 .who-score-bar{background:#f0eeff;border:1px solid #c5b8e8;border-radius:6px;padding:8px 14px;margin-top:10px;display:flex;align-items:center;gap:16px;font-size:12px;font-family:'Courier New',monospace}
 .who-score-num{font-size:22px;font-weight:700;color:#2d1f6e}
@@ -93,14 +83,10 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 
 /* CVM TREE */
 .cvm-frame{background:#fffbee;border:1.5px solid #d4a017;border-radius:6px;padding:12px 14px;margin-bottom:10px}
-.cvm-q{font-size:13.5px;color:#1a1a1a;line-height:1.5;margin-bottom:2px}
 .cvm-branches{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 .branch-yes{background:#f0fff4;border:1.5px solid #5dc48a;border-radius:5px;padding:10px 12px;display:none}
 .branch-no{background:#fff5f0;border:1.5px solid #e07050;border-radius:5px;padding:10px 12px;display:none}
 .branch-yes.show,.branch-no.show{display:block}
-.branch-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:5px}
-.branch-q{font-size:13px;line-height:1.5;margin-bottom:2px}
-.branch-q strong{font-weight:700}
 .protest-box{display:none;margin-top:10px;background:#fff5f0;border:1.5px solid #e07050;border-radius:5px;padding:10px 12px}
 .protest-box.show{display:block}
 
@@ -108,19 +94,17 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 .kii-qc{margin-bottom:14px;padding:13px 15px;background:#fff;border:1px solid #e0dbd0;border-left:3px solid #5dc48a;border-radius:6px}
 .kii-qn{font-size:10px;font-weight:700;color:#5dc48a;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:4px}
 .kii-qt{font-size:13.5px;color:#1a1a1a;line-height:1.5;margin-bottom:2px}
-.probes{padding-left:16px;margin-bottom:6px}
-.probes li{font-size:11.5px;color:#555;margin-bottom:2px;line-height:1.5}
-.probes li::marker{color:#5dc48a}
-.badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
-.badge{font-size:10px;font-weight:700;background:#e6f2ea;color:#1b5e30;border:1px solid #aed4b8;padding:1px 7px;border-radius:3px}
-
-/* CAP BADGES (SLF) */
 .cap-badge{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:2px 8px;border-radius:3px;margin-bottom:8px}
-.cap-h{background:#e8f0ff;color:#1a3a8f}
-.cap-s{background:#fff0e8;color:#8f3a1a}
-.cap-n{background:#eaf5e0;color:#2a6010}
-.cap-p{background:#f5e8ff;color:#5a1a8f}
-.cap-f{background:#fffbe0;color:#7a5c00}
+.cap-h{background:#e8f0ff;color:#1a3a8f}.cap-s{background:#fff0e8;color:#8f3a1a}.cap-n{background:#eaf5e0;color:#2a6010}.cap-p{background:#f5e8ff;color:#5a1a8f}.cap-f{background:#fffbe0;color:#7a5c00}
+
+/* DEMO GRID */
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:5px}
+.demo-item{background:#f8f6f2;border:1.5px solid #e0dbd0;border-radius:4px;padding:7px 10px;display:flex;align-items:center;gap:7px;cursor:pointer;transition:all 0.12s;user-select:none}
+.demo-item.sel{background:#fff0ec;border-color:#bf5a3a}
+.demo-cb{width:14px;height:14px;border:1.5px solid #bf5a3a;border-radius:2px;flex-shrink:0;transition:all 0.12s;display:flex;align-items:center;justify-content:center}
+.demo-item.sel .demo-cb{background:#bf5a3a}
+.demo-item.sel .demo-cb::after{content:"✓";color:#fff;font-size:10px;font-weight:700}
+.demo-txt{font-size:12.5px;color:#2a2a2a}
 
 /* SUBMIT BAR */
 .submit-bar{position:sticky;bottom:0;background:#1b3a2d;padding:12px 28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-top:2px solid #0e2318;z-index:100}
@@ -129,39 +113,11 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 .btn-submit{background:#5dc48a;color:#1b3a2d}.btn-submit:hover{background:#4ab878}
 .btn-clear{background:transparent;color:#a8c4b0;border:1px solid #3a6a50}.btn-clear:hover{background:#0e2318;color:#fff}
 .submit-status{font-size:12px;color:#a8c4b0;font-family:'Courier New',monospace}
-.submit-status.ok{color:#5dc48a}
-.submit-status.err{color:#ff8a70}
-
-/* SETUP TAB */
-.setup-card{background:#fff;border:1px solid #e0dbd0;border-radius:6px;padding:16px 18px;margin-bottom:16px}
-.setup-card h3{font-size:14px;font-weight:700;color:#1b3a2d;margin-bottom:8px}
-.url-input{width:100%;border:1.5px solid #5dc48a;border-radius:4px;padding:7px 11px;font-family:'Courier New',monospace;font-size:12px;color:#1a1a1a;background:#f0fff4;margin-top:6px}
-.dict-grid{display:grid;grid-template-columns:auto 1fr;gap:6px 15px;margin-top:8px;font-size:12px}
-.dict-col{font-weight:700;color:#1b5e30;background:#e8f4ed;padding:2px 6px;border-radius:3px;display:inline-block}
-
-/* DEMO GRID */
-.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:5px}
-.demo-item{background:#f8f6f2;border:1.5px solid #e0dbd0;border-radius:4px;padding:7px 10px;display:flex;align-items:center;gap:7px;cursor:pointer;transition:all 0.12s;user-select:none}
-.demo-item:hover{border-color:#bf5a3a;background:#fff5f2}
-.demo-item.sel{background:#fff0ec;border-color:#bf5a3a}
-.demo-cb{width:14px;height:14px;border:1.5px solid #bf5a3a;border-radius:2px;flex-shrink:0;transition:all 0.12s;display:flex;align-items:center;justify-content:center}
-.demo-item.sel .demo-cb{background:#bf5a3a}
-.demo-item.sel .demo-cb::after{content:"✓";color:#fff;font-size:10px;font-weight:700}
-.demo-txt{font-size:12.5px;color:#2a2a2a}
-
 .prog-bar-wrap{background:#0e2318;height:3px;width:100%}
 .prog-bar-fill{height:3px;background:#5dc48a;transition:width 0.3s}
 .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#1b3a2d;color:#fff;padding:10px 20px;border-radius:6px;font-size:13px;font-weight:700;z-index:9999;opacity:0;transition:opacity 0.3s;pointer-events:none;border:1px solid #5dc48a}
 .toast.show{opacity:1}
-
-@media(max-width:600px){
-  .demo-grid{grid-template-columns:1fr}
-  .cvm-branches{grid-template-columns:1fr}
-  .wrap{padding:16px 14px 60px}
-  .hdr{padding:12px 16px}
-  .tabs{padding:0 14px}
-  .submit-bar{padding:10px 14px}
-}
+@media(max-width:600px){ .demo-grid{grid-template-columns:1fr} .cvm-branches{grid-template-columns:1fr} .wrap{padding:16px 14px 60px} .hdr{padding:12px 16px} .tabs{padding:0 14px} .submit-bar{padding:10px 14px} }
 </style>
 </head>
 <body>
@@ -181,8 +137,10 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
   <label>Site</label>
   <select id="meta-site" onchange="setMeta()">
     <option value="">— Select site —</option>
-    <option value="Sultanabad">Sultanabad NV</option>
-    <option value="Indroda">Indroda Park</option>
+    <option value="NVY Gujarat">NVY Gujarat</option>
+    <option value="NVY Jharkhand">NVY Jharkhand</option>
+    <option value="NVY Andhra Pradesh">NVY Andhra Pradesh</option>
+    <option value="NVY MP">NVY MP</option>
     <option value="Other">Other</option>
   </select>
   <label>Type</label>
@@ -190,6 +148,7 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
     <option value="Visitor">Visitor</option>
     <option value="Vendor">Vendor</option>
     <option value="KII">KII</option>
+    <option value="FGD">FGD</option>
   </select>
   <button class="gps-btn" onclick="getLocation()">📍 Get GPS</button>
   <span id="loc-display" class="gps-val">Lat/Lon</span>
@@ -197,22 +156,20 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 <div class="prog-bar-wrap"><div class="prog-bar-fill" id="global-prog" style="width:0%"></div></div>
 
 <div class="tabs">
-  <button class="tb on" onclick="showTab('demo',this)">1. Demographics<span class="prog" id="prog-demo"></span></button>
-  <button class="tb" onclick="showTab('cvm',this)">2. CVM<span class="prog" id="prog-cvm"></span></button>
-  <button class="tb" onclick="showTab('who',this)">3. WHO-5<span class="prog" id="prog-who"></span></button>
-  <button class="tb" onclick="showTab('slf',this)">4. SLF<span class="prog" id="prog-slf"></span></button>
-  <button class="tb" onclick="showTab('pra',this)">5. PRA<span class="prog" id="prog-pra"></span></button>
-  <button class="tb" onclick="showTab('kii',this)">6. KII<span class="prog" id="prog-kii"></span></button>
+  <button class="tb on" id="tab-demo" onclick="showTab('demo',this)">1. Demographics</button>
+  <button class="tb" id="tab-cvm" onclick="showTab('cvm',this)">2. CVM</button>
+  <button class="tb" id="tab-who" onclick="showTab('who',this)">3. WHO-5</button>
+  <button class="tb" id="tab-slf" onclick="showTab('slf',this)">4. SLF</button>
+  <button class="tb" id="tab-pra" onclick="showTab('pra',this)">5. PRA</button>
+  <button class="tb" id="tab-kii" onclick="showTab('kii',this)">6. KII</button>
+  <button class="tb" id="tab-fgd" onclick="showTab('fgd',this)">7. FGD</button>
   <button class="tb" onclick="showTab('setup',this)">⚙ Config</button>
 </div>
 
 <div class="wrap">
 
 <div id="demo" class="pane on">
-  <div class="pane-title">
-    <h2>Respondent Demographics</h2>
-    <p>Tap again to deselect an option &nbsp;|&nbsp; एक ही विकल्प को दोबारा दबाने पर वह हट जाएगा</p>
-  </div>
+  <div class="pane-title"><h2>Respondent Demographics</h2></div>
 
   <div class="sec">
     <div class="sec-hd">Q1 &nbsp; Age Group</div>
@@ -472,7 +429,7 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 </div>
 
 <div id="pra" class="pane">
-  <div class="pane-title"><h2>PRA — Transect Walk & Site Checklist</h2><p>Researcher Only (English) | Record observations while walking.</p></div>
+  <div class="pane-title"><h2>PRA — Transect Walk & Site Checklist</h2><p>For my use only | Record observations while walking.</p></div>
 
   <div class="sec">
     <div class="sec-hd">Zone A: Boundary & Land Use (SO3)</div>
@@ -503,7 +460,7 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
   <div class="sec">
     <div class="sec-hd">Zone B: Vegetation & Tree Survival (SO3)</div>
     <div class="qc"><div class="qn">PRA-B1</div>
-      <div class="qt">Visual canopy cover estimate (%)</div>
+      <div class="qt">My visual canopy cover estimate (%)</div>
       <textarea class="ta" oninput="R.pra_b1=this.value;updateProgress()" placeholder="E.g., ~30% canopy cover."></textarea>
     </div>
     <div class="qc"><div class="qn">PRA-B2</div>
@@ -511,7 +468,7 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
       <textarea class="ta" oninput="R.pra_b2=this.value;updateProgress()" placeholder="E.g., ~70% survival, signs of watering issues..."></textarea>
     </div>
     <div class="qc"><div class="qn">PRA-B3</div>
-      <div class="qt">Dominant species observed (Native vs Invasive)</div>
+      <div class="qt">Dominant species I observed (Native vs Invasive)</div>
       <textarea class="ta" oninput="R.pra_b3=this.value;updateProgress()" placeholder="List 3-4 dominant species..."></textarea>
     </div>
     <div class="qc"><div class="qn">PRA-B4</div>
@@ -560,7 +517,7 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
       <textarea class="ta" oninput="R.pra_d1=this.value;updateProgress()" placeholder="E.g., ~5 vendors (tea, snacks, toys)"></textarea>
     </div>
     <div class="qc"><div class="qn">PRA-D2</div>
-      <div class="qt">Demographics of users present</div>
+      <div class="qt">Demographics of users I see present</div>
       <textarea class="ta" oninput="R.pra_d2=this.value;updateProgress()" placeholder="E.g., 40% elderly, 30% kids. Mostly male."></textarea>
     </div>
     <div class="qc"><div class="qn">PRA-D3</div>
@@ -574,24 +531,27 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
   </div>
 
   <div class="sec">
-    <div class="sec-hd">Zone E: Field Impression & Media Upload</div>
+    <div class="sec-hd">Zone E: Field Impression & Media</div>
     <div class="qc">
       <div class="qn">PRA-E1: Overall Field Note</div>
+      <div class="qt">My brief note describing the overall condition, atmosphere, and the single most striking observation.</div>
       <textarea class="ta" oninput="R.pra_e1=this.value;updateProgress()" placeholder="Overall condition, atmosphere, striking observations..." style="min-height:80px"></textarea>
     </div>
     
     <div class="qc" style="background:#f0f8ff; border-color:#b8d8e0">
-      <div class="qn" style="color:#2a7a9a">Media Drive Upload</div>
-      <p style="font-size:11px; color:#555; margin-bottom:8px">These files will be uploaded directly to your Google Drive when you hit Submit.</p>
+      <div class="qn" style="color:#2a7a9a">Media (Save to Device Locally)</div>
+      <p style="font-size:11px; color:#555; margin-bottom:8px">When you attach media, it will immediately prompt you to save/download it into your phone's Local folder.</p>
+      
       <div class="media-box">
-        <label class="media-btn">📷 Attach / Take Photo
-          <input type="file" accept="image/*" capture="environment" class="media-input" onchange="handleMedia(this, 'photo')">
+        <label class="media-btn">📷 Take/Attach Photo
+          <input type="file" accept="image/*" capture="environment" class="media-input" onchange="handleLocalMedia(this, 'photo')">
         </label>
         <span id="photo-status" style="font-size:11px; color:#2d6a4f; align-self:center"></span>
       </div>
+      
       <div class="media-box">
-        <label class="media-btn">🎤 Attach / Record Audio
-          <input type="file" accept="audio/*" capture="microphone" class="media-input" onchange="handleMedia(this, 'audio')">
+        <label class="media-btn">🎤 Record/Attach Audio
+          <input type="file" accept="audio/*" capture="microphone" class="media-input" onchange="handleLocalMedia(this, 'audio')">
         </label>
         <span id="audio-status" style="font-size:11px; color:#2d6a4f; align-self:center"></span>
       </div>
@@ -605,27 +565,62 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
     <div class="kii-qc">
       <div class="kii-qn">KII-1 | Governance & PPP Structure</div>
       <div class="kii-qt">"How are responsibilities of the ULB, Forest Dept, and CSR divided? Is there an MoU?"</div>
+      <div class="qt-hi">"नगर पालिका, वन विभाग और CSR के बीच जिम्मेदारियां कैसे बंटी हैं? क्या कोई लिखित समझौता (MoU) है?"</div>
       <textarea class="ta" oninput="R.kii_q1=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
     <div class="kii-qc">
       <div class="kii-qn">KII-2 | Operational PPP Efficacy</div>
       <div class="kii-qt">"How well does this PPP model work day-to-day? What happens if a partner fails?"</div>
+      <div class="qt-hi">"यह PPP (पब्लिक-प्राइवेट) मॉडल रोज़मर्रा में कैसा काम कर रहा है? अगर कोई साझीदार पीछे हट जाए तो क्या होगा?"</div>
       <textarea class="ta" oninput="R.kii_q2=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
     <div class="kii-qc">
       <div class="kii-qn">KII-3 | Management Challenges</div>
       <div class="kii-qt">"What are the biggest challenges in managing this Nagar Van? (Staffing, budget, etc.)"</div>
+      <div class="qt-hi">"इस नगर वन को सँभालने में सबसे बड़ी चुनौतियाँ क्या हैं? (स्टाफ, बजट आदि)"</div>
       <textarea class="ta" oninput="R.kii_q3=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
     <div class="kii-qc">
       <div class="kii-qn">KII-4 | NAEB/PMU Reporting</div>
       <div class="kii-qt">"What does your quarterly report actually measure? Are survival rates/KML accurate?"</div>
+      <div class="qt-hi">"आपकी तिमाही रिपोर्ट में असल में क्या मापा जाता है? क्या जीवित पेड़ों की संख्या और KML डेटा सटीक है?"</div>
       <textarea class="ta" oninput="R.kii_q4=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
     <div class="kii-qc">
       <div class="kii-qn">KII-5 | e-Green Watch & KPI Gaps</div>
       <div class="kii-qt">"What outcomes (health, livelihoods, heat) are NOT captured in current monitoring?"</div>
+      <div class="qt-hi">"कौन से परिणाम (जैसे स्वास्थ्य, कमाई, गर्मी में कमी) मौजूदा मॉनिटरिंग में दर्ज नहीं हो पाते हैं?"</div>
       <textarea class="ta" oninput="R.kii_q5=this.value;updateProgress()" placeholder="Notes..."></textarea>
+    </div>
+  </div>
+</div>
+
+<div id="fgd" class="pane">
+  <div class="pane-title"><h2>Focus Group Discussion (FGD)</h2><p>For Community Groups / Regular Users</p></div>
+  <div class="sec">
+    <div class="kii-qc">
+      <div class="kii-qn">FGD-1 | Community Impact</div>
+      <div class="kii-qt">"How has the Nagar Van changed the daily life of your community?"</div>
+      <div class="qt-hi">"नगर वन ने आपके समुदाय के दैनिक जीवन को कैसे बदल दिया है?"</div>
+      <textarea class="ta" oninput="R.fgd_q1=this.value;updateProgress()" placeholder="Notes..."></textarea>
+    </div>
+    <div class="kii-qc">
+      <div class="kii-qn">FGD-2 | Women & Children Benefits</div>
+      <div class="kii-qt">"What are the main benefits women and children get from this park?"</div>
+      <div class="qt-hi">"इस पार्क से महिलाओं और बच्चों को मुख्य रूप से क्या लाभ मिलते हैं?"</div>
+      <textarea class="ta" oninput="R.fgd_q2=this.value;updateProgress()" placeholder="Notes..."></textarea>
+    </div>
+    <div class="kii-qc">
+      <div class="kii-qn">FGD-3 | Resource Conflicts</div>
+      <div class="kii-qt">"Are there any conflicts over resources or access to the park?"</div>
+      <div class="qt-hi">"क्या पार्क के संसाधनों (लकड़ी, चारा आदि) या प्रवेश को लेकर कोई विवाद है?"</div>
+      <textarea class="ta" oninput="R.fgd_q3=this.value;updateProgress()" placeholder="Notes..."></textarea>
+    </div>
+    <div class="kii-qc">
+      <div class="kii-qn">FGD-4 | Future Suggestions</div>
+      <div class="kii-qt">"What improvements would you collectively suggest for the future?"</div>
+      <div class="qt-hi">"भविष्य के लिए आप सब मिलकर क्या सुधार सुझाएंगे?"</div>
+      <textarea class="ta" oninput="R.fgd_q4=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
   </div>
 </div>
@@ -649,16 +644,17 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
       <div class="dict-col">w1 → w5 / who_score</div><div>WHO-5 Wellbeing</div>
       <div class="dict-col">s_h1 → s_f2</div><div>10 SLF Capital variables</div>
       <div class="dict-col">pra_a1 → pra_e1</div><div>14 PRA checklist items & notes</div>
-      <div class="dict-col">photo_file / audio_file</div><div>Links to Google Drive Files</div>
+      <div class="dict-col">photo_file / audio_file</div><div>Filenames saved locally</div>
       <div class="dict-col">kii_q1 → kii_q5</div><div>5 KII Official interview variables</div>
+      <div class="dict-col">fgd_q1 → fgd_q4</div><div>4 FGD Community variables</div>
     </div>
   </div>
 </div>
 
 </div><div class="submit-bar">
   <button class="btn btn-save" onclick="saveLocal()">💾 Save Draft</button>
-  <button class="btn btn-submit" onclick="submitToSheets()">▶ Submit</button>
-  <button class="btn btn-clear" onclick="clearForm()">↺ Clear</button>
+  <button class="btn btn-submit" onclick="submitToSheets()">▶ Submit Data</button>
+  <button class="btn btn-clear" onclick="clearForm()">↺ Clear Form</button>
   <span class="submit-status" id="submit-status">Ready.</span>
 </div>
 
@@ -677,7 +673,8 @@ var R = {
   pra_c1:'', pra_c1_note:'', pra_c2:'', pra_c3:'',
   pra_d1:'', pra_d2:'', pra_d3:'', pra_e1:'',
   photo_file:'', audio_file:'',
-  kii_q1:'', kii_q2:'', kii_q3:'', kii_q4:'', kii_q5:''
+  kii_q1:'', kii_q2:'', kii_q3:'', kii_q4:'', kii_q5:'',
+  fgd_q1:'', fgd_q2:'', fgd_q3:'', fgd_q4:''
 };
 
 window.onload = function() {
@@ -719,54 +716,41 @@ function getLocation() {
   } else { display.textContent = "Not Supported"; }
 }
 
-// ─── BASE64 MEDIA HANDLING WITH COMPRESSION ───
-function handleMedia(input, type) {
+// ─── LOCAL DEVICE MEDIA SAVING ───
+function handleLocalMedia(input, type) {
   if (input.files && input.files[0]) {
     var file = input.files[0];
-    document.getElementById(type + '-status').textContent = "⏳ Processing...";
     
+    // Create a filename based on Respondent ID
+    var fileExt = file.name.split('.').pop();
+    var newFilename = R.respondent_id + "_" + type + "." + fileExt;
+    
+    // Save filename to Sheet data
     if(type === 'photo') {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        var img = new Image();
-        img.onload = function() {
-          // Compress the image
-          var canvas = document.createElement('canvas');
-          var MAX_WIDTH = 1200; // Good balance of quality and small file size
-          var scaleSize = MAX_WIDTH / img.width;
-          canvas.width = MAX_WIDTH;
-          canvas.height = img.height * scaleSize;
-          var ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-          
-          var compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7); // 70% quality
-          var base64 = compressedDataUrl.split(',')[1];
-          
-          R.photo_base64 = base64;
-          R.photo_mime = 'image/jpeg';
-          R.photo_filename = R.respondent_id + "_photo.jpg";
-          R.photo_file = "Uploading..."; // Placeholder
-          document.getElementById('photo-status').textContent = "✓ Compressed & Ready";
-          updateProgress();
-        };
-        img.src = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    } 
-    
+      R.photo_file = newFilename;
+      document.getElementById('photo-status').textContent = "✓ Filename ready to submit";
+    }
     if(type === 'audio') {
+      R.audio_file = newFilename;
+      document.getElementById('audio-status').textContent = "✓ Filename ready to submit";
+    }
+
+    // Force Download/Save to the user's Local Device
+    var confirmSave = confirm("Save this " + type + " to your device's local folder now?");
+    if (confirmSave) {
       var reader = new FileReader();
       reader.onload = function(e) {
-        var base64 = e.target.result.split(',')[1];
-        R.audio_base64 = base64;
-        R.audio_mime = file.type;
-        R.audio_filename = R.respondent_id + "_audio_" + file.name;
-        R.audio_file = "Uploading..."; // Placeholder
-        document.getElementById('audio-status').textContent = "✓ Ready";
-        updateProgress();
+        var a = document.createElement("a");
+        a.href = e.target.result;
+        a.download = newFilename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        showToast("Saved locally to your device!");
       };
       reader.readAsDataURL(file);
     }
+    updateProgress();
   }
 }
 
@@ -843,14 +827,39 @@ function calcWho() {
   }
 }
 
+function checkTabCompletion() {
+  // Logic to turn tabs Green when required fields are filled
+  var tabs = {
+    'demo': ['d_age', 'd_gender', 'd_edu', 'd_income'],
+    'cvm': ['cvm_initial'],
+    'who': ['w1', 'w2', 'w3', 'w4', 'w5'],
+    'slf': ['s_h1', 's_h2', 's_s1', 's_s2', 's_n1', 's_n2', 's_p1', 's_p2', 's_f1', 's_f2'],
+    'pra': ['pra_a1', 'pra_a2', 'pra_b4', 'pra_c1', 'pra_c2', 'pra_c3', 'pra_d3'], // Checked subset for PRA speed
+    'kii': ['kii_q1', 'kii_q2'], // Just a few for KII speed
+    'fgd': ['fgd_q1']
+  };
+
+  for (var t in tabs) {
+    var isComplete = true;
+    for (var i = 0; i < tabs[t].length; i++) {
+      if (R[tabs[t][i]] === '') { isComplete = false; break; }
+    }
+    var tabBtn = document.getElementById('tab-' + t);
+    if(tabBtn) {
+      if (isComplete) tabBtn.classList.add('completed');
+      else tabBtn.classList.remove('completed');
+    }
+  }
+}
+
 function updateProgress() {
   var t = 0, c = 0;
   for(var key in R) {
-    // Exclude technical and base64 helper fields from progress calculation
-    if(['timestamp','respondent_id','site','survey_type','who_score','lat','lon','photo_file','audio_file', 'photo_base64', 'photo_mime', 'photo_filename', 'audio_base64', 'audio_mime', 'audio_filename'].includes(key)) continue;
+    if(['timestamp','respondent_id','site','survey_type','who_score','lat','lon','photo_file','audio_file'].includes(key)) continue;
     t++; if(R[key] !== '') c++;
   }
   document.getElementById('global-prog').style.width = Math.round((c/t)*100) + '%';
+  checkTabCompletion();
 }
 
 function showTab(id, btn) {
@@ -870,25 +879,20 @@ function submitToSheets() {
   setTimestamp();
   
   var btn = document.querySelector('.btn-submit');
+  btn.textContent = "⏳ Sending Data...";
   
-  if(R.photo_base64 || R.audio_base64) {
-      btn.textContent = "⏳ Uploading to Drive...";
-  } else {
-      btn.textContent = "⏳ Sending...";
-  }
-  
-  // FIX: Removed strict headers to bypass Google CORS blocks
+  // Clean JSON string - no heavy base64 chunks
   fetch(url, { 
     method: 'POST', 
     body: JSON.stringify(R) 
   })
   .then(response => response.text())
   .then(function(text) {
-    btn.textContent = "▶ Submit";
-    showToast('✓ Saved & Uploaded to Drive!');
+    btn.textContent = "▶ Submit Data";
+    showToast('✓ Data successfully saved to Sheet!');
     saveLocal();
   }).catch(function(e) {
-    btn.textContent = "▶ Submit"; 
+    btn.textContent = "▶ Submit Data"; 
     showToast('✗ Error saving. Try again.');
   });
 }
@@ -902,6 +906,7 @@ function clearForm() {
   document.querySelectorAll('.sel').forEach(function(o){ o.classList.remove('sel'); });
   document.querySelectorAll('.answered').forEach(function(q){ q.classList.remove('answered'); });
   document.querySelectorAll('.ta').forEach(function(t){ t.value = ''; });
+  document.querySelectorAll('.tb').forEach(function(tb){ tb.classList.remove('completed'); });
   document.getElementById('photo-status').textContent = '';
   document.getElementById('audio-status').textContent = '';
   document.getElementById('loc-display').textContent = 'Lat/Lon';
