@@ -47,10 +47,6 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 .qn{font-size:10px;font-weight:700;color:#5dc48a;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:4px}
 .qt{font-size:13.5px;color:#1a1a1a;line-height:1.5;margin-bottom:2px}
 .qt-hi{font-size:12.5px;color:#666;font-family:sans-serif;margin-bottom:8px;line-height:1.4}
-.qt em{font-style:italic;color:#666;font-size:12.5px}
-.qt strong{font-weight:700}
-
-/* INTERACTIVE OPTIONS */
 .opts{display:flex;flex-wrap:wrap;gap:5px}
 .o{font-size:12px;background:#f0f7f3;color:#1b3a2d;border:1.5px solid #c5dece;padding:4px 11px;border-radius:11px;cursor:pointer;user-select:none;transition:all 0.12s}
 .o:hover{background:#d8f0e4;border-color:#5dc48a}
@@ -319,12 +315,12 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
   <div class="sec">
     <span class="cap-badge cap-h">Human Capital</span>
     <div class="qc"><div class="qn">SLF-H1</div>
-      <div class="qt">Have you received any training or environmental education related to this park?</div>
-      <div class="qt-hi">क्या आपको इस पार्क से जुड़ा कोई प्रशिक्षण मिला है?</div>
+      <div class="qt">Has being a part of this park helped you learn anything new about nature, the environment, or given you a useful skill?</div>
+      <div class="qt-hi">क्या इस पार्क से जुड़ने या यहाँ आने से आपको प्रकृति, पर्यावरण या किसी नए काम (skill) के बारे में कुछ नया सीखने को मिला है?</div>
       <div class="opts" id="grp-s_h1">
-        <span class="o" onclick="selOpt(this,'s_h1','Formal')">Formal (औपचारिक)</span>
-        <span class="o" onclick="selOpt(this,'s_h1','Informal')">Informal (अनौपचारिक)</span>
-        <span class="o" onclick="selOpt(this,'s_h1','None')">None (कोई नहीं)</span>
+        <span class="o" onclick="selOpt(this,'s_h1','Formal program/Workshop')">Formal / Workshop (औपचारिक ट्रेनिंग)</span>
+        <span class="o" onclick="selOpt(this,'s_h1','Informal/Self-learning')">Informal / Self-learning (खुद से सीखा)</span>
+        <span class="o" onclick="selOpt(this,'s_h1','None')">None (कुछ नहीं)</span>
       </div>
     </div>
     <div class="qc"><div class="qn">SLF-H2</div>
@@ -341,21 +337,21 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
   <div class="sec">
     <span class="cap-badge cap-s">Social Capital</span>
     <div class="qc"><div class="qn">SLF-S1</div>
-      <div class="qt">Has this park helped you build new relationships useful for work/life?</div>
-      <div class="qt-hi">क्या इस पार्क ने आपको नए और उपयोगी संबंध बनाने में मदद की है?</div>
+      <div class="qt">Has visiting this park helped you connect with other people or feel more a part of the local community?</div>
+      <div class="qt-hi">क्या इस पार्क में आने से आपको नए लोगों से जुड़ने या स्थानीय समुदाय (community) का हिस्सा महसूस करने में मदद मिली है?</div>
       <div class="opts" id="grp-s_s1">
-        <span class="o" onclick="selOpt(this,'s_s1','Yes significantly')">Yes (हाँ)</span>
-        <span class="o" onclick="selOpt(this,'s_s1','A few')">A few (कुछ)</span>
-        <span class="o" onclick="selOpt(this,'s_s1','None')">None (कोई नहीं)</span>
+        <span class="o" onclick="selOpt(this,'s_s1','Yes, feel connected')">Yes, very much (हाँ, काफी)</span>
+        <span class="o" onclick="selOpt(this,'s_s1','Somewhat/A few')">Somewhat (कुछ हद तक)</span>
+        <span class="o" onclick="selOpt(this,'s_s1','No/Keep to myself')">No / Keep to myself (नहीं)</span>
       </div>
     </div>
     <div class="qc"><div class="qn">SLF-S2</div>
-      <div class="qt">Do people near the park work together to protect or clean it?</div>
-      <div class="qt-hi">क्या लोग इस पार्क की सुरक्षा या सफाई के लिए मिलकर काम करते हैं?</div>
+      <div class="qt">Do you notice people here taking care of the park together—like keeping it clean or stopping others from damaging it?</div>
+      <div class="qt-hi">क्या आपने देखा है कि यहाँ लोग मिलकर इस पार्क का ख्याल रखते हैं—जैसे साफ-सफाई रखना या किसी को नुकसान पहुँचाने से टोकना?</div>
       <div class="opts" id="grp-s_s2">
-        <span class="o" onclick="selOpt(this,'s_s2','Strong collective action')">Yes (हाँ, मिलकर)</span>
-        <span class="o" onclick="selOpt(this,'s_s2','Sometimes')">Sometimes (कभी-कभी)</span>
-        <span class="o" onclick="selOpt(this,'s_s2','Rarely')">Rarely (शायद ही कभी)</span>
+        <span class="o" onclick="selOpt(this,'s_s2','Yes, actively care')">Yes, actively care (हाँ, ध्यान रखते हैं)</span>
+        <span class="o" onclick="selOpt(this,'s_s2','Sometimes/A few')">Sometimes / A few (कभी-कभी)</span>
+        <span class="o" onclick="selOpt(this,'s_s2','No/Mind own business')">No / Mind own business (सब अपने काम से काम रखते हैं)</span>
       </div>
     </div>
   </div>
@@ -372,12 +368,12 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
       </div>
     </div>
     <div class="qc"><div class="qn">SLF-N2</div>
-      <div class="qt">Do you directly use resources from here (shade, medicinal plants, fodder)?</div>
-      <div class="qt-hi">क्या आप यहाँ के संसाधनों (छाया, जड़ी-बूटियाँ, चारा) का उपयोग करते हैं?</div>
+      <div class="qt">Do you or your family use anything directly from this park for your daily needs—like resting in the shade, collecting grass/fodder for animals, or picking medicinal leaves?</div>
+      <div class="qt-hi">क्या आप या आपका परिवार अपनी रोज़मर्रा की ज़रूरतों के लिए इस पार्क से कुछ लेते हैं—जैसे जानवरों के लिए चारा/घास, जड़ी-बूटियां, या आराम करने के लिए छाँव का इस्तेमाल?</div>
       <div class="opts" id="grp-s_n2">
-        <span class="o" onclick="selOpt(this,'s_n2','Regularly')">Regularly (नियमित)</span>
-        <span class="o" onclick="selOpt(this,'s_n2','Occasionally')">Occasionally (कभी-कभी)</span>
-        <span class="o" onclick="selOpt(this,'s_n2','No direct use')">No (नहीं)</span>
+        <span class="o" onclick="selOpt(this,'s_n2','Yes, regularly')">Yes, regularly (हाँ, नियमित)</span>
+        <span class="o" onclick="selOpt(this,'s_n2','Sometimes')">Sometimes (कभी-कभी)</span>
+        <span class="o" onclick="selOpt(this,'s_n2','No, just visit')">No, just visit (नहीं, सिर्फ घूमने आते हैं)</span>
       </div>
     </div>
   </div>
@@ -385,21 +381,21 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
   <div class="sec">
     <span class="cap-badge cap-p">Physical Capital</span>
     <div class="qc"><div class="qn">SLF-P1</div>
-      <div class="qt">Has park infrastructure (paths, lights, water) improved your daily comfort/work?</div>
-      <div class="qt-hi">क्या यहाँ की सुविधाओं (रास्ते, लाइट, पानी) से आपको आसानी हुई है?</div>
+      <div class="qt">Have the physical facilities here—like walking paths, drinking water, or lights—made your visits or your work here safer and more comfortable?</div>
+      <div class="qt-hi">क्या यहाँ बनी नई सुविधाओं—जैसे पक्के रास्ते, पीने का पानी या लाइट—से आपके काम या यहाँ आने-जाने में आसानी और सुरक्षा बढ़ी है?</div>
       <div class="opts" id="grp-s_p1">
-        <span class="o" onclick="selOpt(this,'s_p1','Significantly')">Significantly (काफी)</span>
-        <span class="o" onclick="selOpt(this,'s_p1','Somewhat')">Somewhat (थोड़ा)</span>
-        <span class="o" onclick="selOpt(this,'s_p1','No difference')">No difference (कोई फर्क नहीं)</span>
+        <span class="o" onclick="selOpt(this,'s_p1','Yes, a lot')">Yes, a lot (हाँ, काफी आसानी हुई है)</span>
+        <span class="o" onclick="selOpt(this,'s_p1','A little bit')">A little bit (हाँ, थोड़ा फर्क पड़ा है)</span>
+        <span class="o" onclick="selOpt(this,'s_p1','No real difference')">No real difference (कोई खास फर्क नहीं)</span>
       </div>
     </div>
     <div class="qc"><div class="qn">SLF-P2</div>
-      <div class="qt">Do you have a designated/proper space to conduct your business here?</div>
-      <div class="qt-hi">क्या यहाँ काम करने/व्यापार के लिए आपके पास तय जगह है?</div>
+      <div class="qt">Does the park provide a comfortable and clearly defined space for your primary activities here (whether for work, recreation, or gathering)?</div>
+      <div class="qt-hi">क्या यह पार्क आपके मुख्य काम या गतिविधियों (जैसे व्यापार, आराम, या साथ बैठने) के लिए एक सुविधाजनक और तय जगह प्रदान करता है?</div>
       <div class="opts" id="grp-s_p2">
-        <span class="o" onclick="selOpt(this,'s_p2','Official space')">Official (आधिकारिक जगह)</span>
-        <span class="o" onclick="selOpt(this,'s_p2','Informal space')">Informal (अनौपचारिक)</span>
-        <span class="o" onclick="selOpt(this,'s_p2','No fixed space')">None (कोई तय जगह नहीं)</span>
+        <span class="o" onclick="selOpt(this,'s_p2','Formal/Defined space')">Formal / Defined space (तय जगह)</span>
+        <span class="o" onclick="selOpt(this,'s_p2','Informal/Shared space')">Informal / Shared (अनौपचारिक)</span>
+        <span class="o" onclick="selOpt(this,'s_p2','No proper space')">None (कोई उचित जगह नहीं)</span>
       </div>
     </div>
   </div>
@@ -417,12 +413,12 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
       </div>
     </div>
     <div class="qc"><div class="qn">SLF-F2</div>
-      <div class="qt">Do you have access to credit/savings schemes connected to your work here?</div>
-      <div class="qt-hi">क्या आपको यहाँ के काम से जुड़ी किसी बचत या लोन योजना का लाभ मिलता है?</div>
+      <div class="qt">Do you get any financial support or are you part of a savings group for your work here—like a government loan or a local self-help group?</div>
+      <div class="qt-hi">क्या आपको यहाँ अपने काम के लिए किसी तरह की आर्थिक मदद या बचत योजना का लाभ मिलता है—जैसे कोई सरकारी लोन या कोई स्थानीय स्वयं सहायता समूह (SHG)?</div>
       <div class="opts" id="grp-s_f2">
-        <span class="o" onclick="selOpt(this,'s_f2','Govt scheme')">Govt Scheme (सरकारी योजना)</span>
-        <span class="o" onclick="selOpt(this,'s_f2','NGO / SHG')">NGO/SHG (संस्था)</span>
-        <span class="o" onclick="selOpt(this,'s_f2','None')">None (नहीं)</span>
+        <span class="o" onclick="selOpt(this,'s_f2','Yes - Govt scheme')">Yes, Govt Scheme (हाँ, सरकारी योजना)</span>
+        <span class="o" onclick="selOpt(this,'s_f2','Yes - NGO/SHG')">Yes, NGO / SHG (हाँ, संस्था/समूह)</span>
+        <span class="o" onclick="selOpt(this,'s_f2','No - manage on own')">No, manage on own (नहीं, खुद मैनेज करता हूँ)</span>
       </div>
     </div>
   </div>
@@ -564,14 +560,14 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
   <div class="sec">
     <div class="kii-qc">
       <div class="kii-qn">KII-1 | Governance & PPP Structure</div>
-      <div class="kii-qt">"How are responsibilities of the ULB, Forest Dept, and CSR divided? Is there an MoU?"</div>
-      <div class="qt-hi">"नगर पालिका, वन विभाग और CSR के बीच जिम्मेदारियां कैसे बंटी हैं? क्या कोई लिखित समझौता (MoU) है?"</div>
+      <div class="kii-qt">"Could you share how the ULB, Forest Department, and CSR partners coordinate their efforts? It would be great to understand if there is a formal framework or MoU guiding this collaboration."</div>
+      <div class="qt-hi">"क्या आप बता सकते हैं कि नगर पालिका, वन विभाग और CSR साझीदार मिलकर कैसे काम करते हैं? यह समझना अच्छा रहेगा कि क्या इस सहयोग को दिशा देने के लिए कोई औपचारिक रूपरेखा या MoU बना हुआ है?"</div>
       <textarea class="ta" oninput="R.kii_q1=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
     <div class="kii-qc">
       <div class="kii-qn">KII-2 | Operational PPP Efficacy</div>
-      <div class="kii-qt">"How well does this PPP model work day-to-day? What happens if a partner fails?"</div>
-      <div class="qt-hi">"यह PPP (पब्लिक-प्राइवेट) मॉडल रोज़मर्रा में कैसा काम कर रहा है? अगर कोई साझीदार पीछे हट जाए तो क्या होगा?"</div>
+      <div class="kii-qt">"Could you tell me how active the PPP model is at this specific site right now? Besides the main partners, are there any other local bodies, NGOs, or organizations actively engaged in its day-to-day upkeep?"</div>
+      <div class="qt-hi">"क्या आप बता सकते हैं कि इस साइट पर PPP मॉडल वर्तमान में कितना सक्रिय है? मुख्य साझीदारों के अलावा, क्या कोई अन्य स्थानीय निकाय, NGO या संस्था इसके रोज़मर्रा के रखरखाव में सक्रिय रूप से जुड़ी है?"</div>
       <textarea class="ta" oninput="R.kii_q2=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
     <div class="kii-qc">
@@ -582,14 +578,14 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
     </div>
     <div class="kii-qc">
       <div class="kii-qn">KII-4 | NAEB/PMU Reporting</div>
-      <div class="kii-qt">"What does your quarterly report actually measure? Are survival rates/KML accurate?"</div>
-      <div class="qt-hi">"आपकी तिमाही रिपोर्ट में असल में क्या मापा जाता है? क्या जीवित पेड़ों की संख्या और KML डेटा सटीक है?"</div>
+      <div class="kii-qt">"Could you walk me through the key indicators highlighted in your quarterly reports, and how data like tree survival rates and KML mapping are typically compiled?"</div>
+      <div class="qt-hi">"क्या आप बता सकते हैं कि आपकी तिमाही रिपोर्ट में मुख्य रूप से किन बातों पर ध्यान दिया जाता है, और पेड़ों के बचने की दर या KML जैसी जानकारियाँ आमतौर पर कैसे संकलित की जाती हैं?"</div>
       <textarea class="ta" oninput="R.kii_q4=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
     <div class="kii-qc">
       <div class="kii-qn">KII-5 | e-Green Watch & KPI Gaps</div>
-      <div class="kii-qt">"What outcomes (health, livelihoods, heat) are NOT captured in current monitoring?"</div>
-      <div class="qt-hi">"कौन से परिणाम (जैसे स्वास्थ्य, कमाई, गर्मी में कमी) मौजूदा मॉनिटरिंग में दर्ज नहीं हो पाते हैं?"</div>
+      <div class="kii-qt">"Beyond the standard metrics, are there other positive impacts of the Nagar Van (like community health, cooling, or local livelihoods) that you personally observe, which might be helpful to include in future monitoring?"</div>
+      <div class="qt-hi">"नियमित रिपोर्टिंग के अलावा, क्या आपने इस नगर वन के कुछ अन्य सकारात्मक प्रभाव (जैसे लोगों के स्वास्थ्य, ठंडक या स्थानीय कमाई पर) देखे हैं, जिन्हें भविष्य की मॉनिटरिंग का हिस्सा बनाना फायदेमंद हो सकता है?"</div>
       <textarea class="ta" oninput="R.kii_q5=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
   </div>
@@ -606,14 +602,14 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
     </div>
     <div class="kii-qc">
       <div class="kii-qn">FGD-2 | Women & Children Benefits</div>
-      <div class="kii-qt">"What are the main benefits women and children get from this park?"</div>
-      <div class="qt-hi">"इस पार्क से महिलाओं और बच्चों को मुख्य रूप से क्या लाभ मिलते हैं?"</div>
+      <div class="kii-qt">"Do women and children feel safe and comfortable spending time in this park? What kind of activities do they usually enjoy here?"</div>
+      <div class="qt-hi">"क्या महिलाओं और बच्चों को इस पार्क में समय बिताना सुरक्षित और आरामदायक लगता है? वे आमतौर पर यहाँ क्या करना पसंद करते हैं?"</div>
       <textarea class="ta" oninput="R.fgd_q2=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
     <div class="kii-qc">
-      <div class="kii-qn">FGD-3 | Resource Conflicts</div>
-      <div class="kii-qt">"Are there any conflicts over resources or access to the park?"</div>
-      <div class="qt-hi">"क्या पार्क के संसाधनों (लकड़ी, चारा आदि) या प्रवेश को लेकर कोई विवाद है?"</div>
+      <div class="kii-qn">FGD-3 | Shared Use & Access</div>
+      <div class="kii-qt">"Since many people use this park and its resources (like grass or firewood), do you ever face challenges in sharing the space, or are there any restrictions on access?"</div>
+      <div class="qt-hi">"चूंकि कई लोग इस पार्क और यहाँ की चीज़ों (जैसे घास या सूखी लकड़ी) का इस्तेमाल करते हैं, तो क्या कभी आपस में कोई परेशानी आती है, या यहाँ आने-जाने पर कोई रोक-टोक है?"</div>
       <textarea class="ta" oninput="R.fgd_q3=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
     <div class="kii-qc">
@@ -834,8 +830,8 @@ function checkTabCompletion() {
     'cvm': ['cvm_initial'],
     'who': ['w1', 'w2', 'w3', 'w4', 'w5'],
     'slf': ['s_h1', 's_h2', 's_s1', 's_s2', 's_n1', 's_n2', 's_p1', 's_p2', 's_f1', 's_f2'],
-    'pra': ['pra_a1', 'pra_a2', 'pra_b4', 'pra_c1', 'pra_c2', 'pra_c3', 'pra_d3'], // Checked subset for PRA speed
-    'kii': ['kii_q1', 'kii_q2'], // Checked subset for KII speed
+    'pra': ['pra_a1', 'pra_a2', 'pra_b4', 'pra_c1', 'pra_c2', 'pra_c3', 'pra_d3'], 
+    'kii': ['kii_q1', 'kii_q2'], 
     'fgd': ['fgd_q1']
   };
 
@@ -891,10 +887,13 @@ function submitToSheets() {
     body: JSON.stringify(R) 
   })
   .then(function() {
-    // With no-cors, we assume success if the network request goes through
     btn.textContent = "▶ Submit Data";
-    showToast('✓ Data successfully saved to Sheet!');
-    saveLocal();
+    
+    // FIX: Only show the success message, do not overwrite it with a draft message
+    showToast('✓ Submitted to Google Sheet!');
+    
+    // Clear the draft from phone memory because it successfully submitted
+    localStorage.removeItem('nvy_draft'); 
   }).catch(function(e) {
     btn.textContent = "▶ Submit Data"; 
     showToast('✗ Network Error: Check internet connection.');
@@ -922,9 +921,14 @@ function clearForm() {
   genId(); setTimestamp(); updateProgress(); showToast('Form Cleared');
 }
 
-function saveLocal() {
-  try { localStorage.setItem('nvy_draft', JSON.stringify(R)); showToast('Draft saved'); } catch(e){}
+// FIX: Added silent parameter so it doesn't overwrite success messages
+function saveLocal(isSilent) {
+  try { 
+    localStorage.setItem('nvy_draft', JSON.stringify(R)); 
+    if(!isSilent) showToast('Draft saved locally'); 
+  } catch(e){}
 }
+
 function loadDraft() {
   try {
     var draft = localStorage.getItem('nvy_draft');
@@ -947,6 +951,7 @@ function saveUrl(url) {
     }
   } catch(e) {}
 }
+
 function loadUrl() {
   try { var url = localStorage.getItem('nvy_sheets_url'); if (url) saveUrl(url); } catch(e) {}
 }
