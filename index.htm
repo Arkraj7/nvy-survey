@@ -596,14 +596,14 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
   <div class="sec">
     <div class="kii-qc">
       <div class="kii-qn">FGD-1 | Community Impact</div>
-      <div class="kii-qt">"How has the Nagar Van changed the daily life of your community?"</div>
-      <div class="qt-hi">"नगर वन ने आपके समुदाय के दैनिक जीवन को कैसे बदल दिया है?"</div>
+      <div class="kii-qt">"How has the Nagar Van changed the daily life of your community? For example, do you have a better place to walk, cleaner air, or a safe place for kids to play?"</div>
+      <div class="qt-hi">"नगर वन के बनने से आपके समुदाय के रोज़मर्रा के जीवन में क्या बदलाव आया है? उदाहरण के लिए, क्या अब टहलने के लिए बेहतर जगह है, हवा साफ़ हुई है, या बच्चों के खेलने के लिए सुरक्षित जगह मिली है?"</div>
       <textarea class="ta" oninput="R.fgd_q1=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
     <div class="kii-qc">
-      <div class="kii-qn">FGD-2 | Women & Children Benefits</div>
-      <div class="kii-qt">"Do women and children feel safe and comfortable spending time in this park? What kind of activities do they usually enjoy here?"</div>
-      <div class="qt-hi">"क्या महिलाओं और बच्चों को इस पार्क में समय बिताना सुरक्षित और आरामदायक लगता है? वे आमतौर पर यहाँ क्या करना पसंद करते हैं?"</div>
+      <div class="kii-qn">FGD-2 | Women, Children & Marginalized</div>
+      <div class="kii-qt">"Do women, children, and people from marginalized communities feel safe, welcome, and comfortable spending time in this park? What kind of activities do they usually enjoy here?"</div>
+      <div class="qt-hi">"क्या महिलाओं, बच्चों और कमज़ोर या हाशिए पर रहने वाले वर्गों के लोगों को इस पार्क में आना सुरक्षित और आरामदायक लगता है? वे आमतौर पर यहाँ क्या करना पसंद करते हैं?"</div>
       <textarea class="ta" oninput="R.fgd_q2=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
     <div class="kii-qc">
@@ -614,8 +614,8 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
     </div>
     <div class="kii-qc">
       <div class="kii-qn">FGD-4 | Future Suggestions</div>
-      <div class="kii-qt">"What improvements would you collectively suggest for the future?"</div>
-      <div class="qt-hi">"भविष्य के लिए आप सब मिलकर क्या सुधार सुझाएंगे?"</div>
+      <div class="kii-qt">"What improvements would you collectively suggest for the future? For instance, do you need more drinking water facilities, better lighting, or more seating areas?"</div>
+      <div class="qt-hi">"भविष्य के लिए आप सब मिलकर क्या सुधार सुझाएंगे? उदाहरण के लिए, क्या यहाँ पीने के पानी, बेहतर लाइट, या बैठने की और जगहों की ज़रूरत है?"</div>
       <textarea class="ta" oninput="R.fgd_q4=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
   </div>
@@ -877,7 +877,7 @@ function submitToSheets() {
   var btn = document.querySelector('.btn-submit');
   btn.textContent = "⏳ Sending Data...";
   
-  // FIX: Using no-cors and text/plain to bypass Google's strict security blocks
+  // Using no-cors and text/plain to bypass Google's strict security blocks
   fetch(url, { 
     method: 'POST', 
     mode: 'no-cors',
