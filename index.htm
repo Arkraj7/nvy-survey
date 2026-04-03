@@ -121,23 +121,17 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 
 <div class="hdr">
   <div class="hdr-left">
-    <h1>Nagar Van Yojana — Live Field Survey</h1>
+    <h1>Impact Assessment of Nagar Van Yojana (NVY) — Field Survey</h1>
     <p>Arkraj Biswas &nbsp;|&nbsp; National CAMPA, MoEFCC</p>
   </div>
   <div class="hdr-right">
-    <div class="rid-box">ID: <span class="rid-val" id="rid-display">—</span></div>
-    <div class="rid-box"><span id="ts-display" class="ts-display">—</span></div>
-  </div>
-</div>
-
-<div class="hdr-right">
-    <!-- PUT YOUR GITHUB DASHBOARD LINK HERE -->
     <a href="https://arkraj7.github.io/nvy-dmrv-dashboard/" target="_blank" style="background:#5dc48a; color:#1b3a2d; padding:5px 10px; border-radius:4px; font-size:11.5px; font-weight:700; text-decoration:none; font-family:Arial, sans-serif; display:flex; align-items:center; border:1px solid #4ab878; margin-right: 5px;">
       📊 View DMRV Dashboard
     </a>
     <div class="rid-box">ID: <span class="rid-val" id="rid-display">—</span></div>
     <div class="rid-box"><span id="ts-display" class="ts-display">—</span></div>
   </div>
+</div>
 
 <div class="meta-bar">
   <label>Site</label>
@@ -175,6 +169,12 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 <div class="wrap">
 
 <div id="demo" class="pane on">
+  
+  <div class="sec" style="background:#e8f4f0; border:1px solid #5dc48a; padding:15px; border-radius:6px; margin-bottom: 20px;">
+      <h3 style="color:#1b3a2d; font-weight:bold; margin-bottom:8px; font-size:14px;">Purpose of the Study & Informed Consent</h3>
+      <p style="font-size:12px; color:#333; line-height:1.5;">This study aims to evaluate the ecological, socio-economic, and community impacts of the Nagar Van Yojana. <br><br><strong>Voluntary Participation:</strong> Your participation is completely voluntary. You may choose to skip any question or stop at any time. <br><br><strong>Confidentiality & Anonymity:</strong> All responses are strictly confidential. Your identity will remain anonymous, and the data will be used solely for academic and policy-evaluation purposes.</p>
+  </div>
+
   <div class="pane-title"><h2>Respondent Demographics</h2></div>
 
   <div class="sec">
@@ -196,7 +196,7 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
     <div class="demo-grid" id="grp-d_gender">
       <div class="demo-item" onclick="selDemo('d_gender','Male',this)"><div class="demo-cb"></div><div class="demo-txt">Male / पुरुष</div></div>
       <div class="demo-item" onclick="selDemo('d_gender','Female',this)"><div class="demo-cb"></div><div class="demo-txt">Female / महिला</div></div>
-      <div class="demo-item" onclick="selDemo('d_gender','Other',this)"><div class="demo-cb"></div><div class="demo-txt">Other / अन्य</div></div>
+      <div class="demo-item" onclick="selDemo('d_gender','Prefer not to say',this)"><div class="demo-cb"></div><div class="demo-txt">Prefer not to say / बताना नहीं चाहते</div></div>
     </div>
   </div>
 
@@ -204,12 +204,15 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
     <div class="sec-hd">Q3 &nbsp; Highest Education Completed</div>
     <div class="qt-hi">उच्चतम शिक्षा (Highest Education)</div>
     <div class="demo-grid" id="grp-d_edu">
-      <div class="demo-item" onclick="selDemo('d_edu','None',this)"><div class="demo-cb"></div><div class="demo-txt">None / कोई शिक्षा नहीं</div></div>
-      <div class="demo-item" onclick="selDemo('d_edu','Primary',this)"><div class="demo-cb"></div><div class="demo-txt">Primary (Class 5) / प्राथमिक</div></div>
-      <div class="demo-item" onclick="selDemo('d_edu','Secondary',this)"><div class="demo-cb"></div><div class="demo-txt">Secondary (10th) / माध्यमिक</div></div>
-      <div class="demo-item" onclick="selDemo('d_edu','Higher Sec',this)"><div class="demo-cb"></div><div class="demo-txt">Higher Sec (12th) / उच्चतर</div></div>
-      <div class="demo-item" onclick="selDemo('d_edu','Graduate',this)"><div class="demo-cb"></div><div class="demo-txt">Graduate / स्नातक</div></div>
-      <div class="demo-item" onclick="selDemo('d_edu','Post-grad',this)"><div class="demo-cb"></div><div class="demo-txt">Post-grad / स्नातकोत्तर</div></div>
+      <div class="demo-item" onclick="selDemo('d_edu','No formal education',this)"><div class="demo-cb"></div><div class="demo-txt">No formal education</div></div>
+      <div class="demo-item" onclick="selDemo('d_edu','Primary (Class 5)',this)"><div class="demo-cb"></div><div class="demo-txt">Primary (up to Class 5)</div></div>
+      <div class="demo-item" onclick="selDemo('d_edu','Upper Primary (Class 6-8)',this)"><div class="demo-cb"></div><div class="demo-txt">Upper Primary (Class 6–8)</div></div>
+      <div class="demo-item" onclick="selDemo('d_edu','Secondary (Class 9-10)',this)"><div class="demo-cb"></div><div class="demo-txt">Secondary (Class 9–10)</div></div>
+      <div class="demo-item" onclick="selDemo('d_edu','Higher Sec (Class 11-12)',this)"><div class="demo-cb"></div><div class="demo-txt">Higher Secondary (Class 11–12)</div></div>
+      <div class="demo-item" onclick="selDemo('d_edu','Diploma/Vocational',this)"><div class="demo-cb"></div><div class="demo-txt">Diploma / ITI / Vocational</div></div>
+      <div class="demo-item" onclick="selDemo('d_edu','Graduate',this)"><div class="demo-cb"></div><div class="demo-txt">Graduate (Bachelor’s)</div></div>
+      <div class="demo-item" onclick="selDemo('d_edu','Postgraduate',this)"><div class="demo-cb"></div><div class="demo-txt">Postgraduate (Master’s)</div></div>
+      <div class="demo-item" onclick="selDemo('d_edu','Doctorate',this)"><div class="demo-cb"></div><div class="demo-txt">Doctorate (PhD)</div></div>
     </div>
   </div>
 
@@ -223,6 +226,18 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
       <div class="demo-item" onclick="selDemo('d_income','20k-50k',this)"><div class="demo-cb"></div><div class="demo-txt">₹20,001 – ₹50,000</div></div>
       <div class="demo-item" onclick="selDemo('d_income','Above 50k',this)"><div class="demo-cb"></div><div class="demo-txt">Above ₹50,000</div></div>
       <div class="demo-item" onclick="selDemo('d_income','Declined',this)"><div class="demo-cb"></div><div class="demo-txt">Declined / बताना नहीं चाहते</div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-hd">Q5 &nbsp; Primary reason for visiting this park</div>
+    <div class="qt-hi">इस पार्क में आने का मुख्य कारण क्या है?</div>
+    <div class="demo-grid" id="grp-d_reason">
+      <div class="demo-item" onclick="selDemo('d_reason','Walk/Exercise',this)"><div class="demo-cb"></div><div class="demo-txt">Walk / Exercise (टहलना / व्यायाम)</div></div>
+      <div class="demo-item" onclick="selDemo('d_reason','Relax/Nature',this)"><div class="demo-cb"></div><div class="demo-txt">Relax / Enjoy Nature (आराम / प्रकृति)</div></div>
+      <div class="demo-item" onclick="selDemo('d_reason','Kids/Family',this)"><div class="demo-cb"></div><div class="demo-txt">Kids / Family time (परिवार के साथ)</div></div>
+      <div class="demo-item" onclick="selDemo('d_reason','Group Activities',this)"><div class="demo-cb"></div><div class="demo-txt">Group Activities / Yoga (समूह गतिविधियां)</div></div>
+      <div class="demo-item" onclick="selDemo('d_reason','Pass-through',this)"><div class="demo-cb"></div><div class="demo-txt">Pass-through (रास्ता पार करना)</div></div>
     </div>
   </div>
 </div>
@@ -287,6 +302,11 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
   <p style="font-size:12px; margin-bottom:10px; color:#555">0 = At no time (कभी नहीं) | 5 = All of the time (हर समय)</p>
 
   <div class="sec">
+    <p style="font-size:13.5px; margin-bottom:12px; color:#2d1f6e; font-weight:bold; background:#e8f4f0; padding:10px; border-radius:5px;">
+      By using the park, has the following happened? Over the last 2 weeks...<br>
+      <span style="font-size:12px; color:#555; font-weight:normal;">(पार्क का उपयोग करने से, क्या पिछले 2 हफ्तों में आपने ऐसा महसूस किया है?)</span>
+    </p>
+
     <table class="who-tbl">
       <thead><tr><th>Statement (Last 2 weeks)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead>
       <tbody>
@@ -342,13 +362,22 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
         <span class="o warn" onclick="selOpt(this,'s_h2','Worsened')">Worsened (खराब)</span>
       </div>
     </div>
+    <div class="qc"><div class="qn">SLF-H3</div>
+      <div class="qt">After spending time in this park, how do you feel generally?</div>
+      <div class="qt-hi">इस पार्क में समय बिताने के बाद आप आमतौर पर कैसा महसूस करते हैं?</div>
+      <div class="opts" id="grp-s_h3">
+        <span class="o" onclick="selOpt(this,'s_h3','Relaxed/Happy')">Relaxed / Happy (शांत / खुश)</span>
+        <span class="o" onclick="selOpt(this,'s_h3','Energized')">Energized (ऊर्जावान)</span>
+        <span class="o" onclick="selOpt(this,'s_h3','No change')">No Change (कोई बदलाव नहीं)</span>
+      </div>
+    </div>
   </div>
 
   <div class="sec">
     <span class="cap-badge cap-s">Social Capital</span>
     <div class="qc"><div class="qn">SLF-S1</div>
       <div class="qt">Has visiting this park helped you connect with other people or feel more a part of the local community?</div>
-      <div class="qt-hi">क्या इस पार्क में आने से आपको नए लोगों से जुड़ने या स्थानीय समुदाय (community) का हिस्सा महसूस करने में मदद मिली है?</div>
+      <div class="qt-hi">क्या इस पार्क में आने से आपको नए लोगों से जुड़ने या स्थानीय समुदाय का हिस्सा महसूस करने में मदद मिली है?</div>
       <div class="opts" id="grp-s_s1">
         <span class="o" onclick="selOpt(this,'s_s1','Yes, feel connected')">Yes, very much (हाँ, काफी)</span>
         <span class="o" onclick="selOpt(this,'s_s1','Somewhat/A few')">Somewhat (कुछ हद तक)</span>
@@ -357,11 +386,29 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
     </div>
     <div class="qc"><div class="qn">SLF-S2</div>
       <div class="qt">Do you notice people here taking care of the park together—like keeping it clean or stopping others from damaging it?</div>
-      <div class="qt-hi">क्या आपने देखा है कि यहाँ लोग मिलकर इस पार्क का ख्याल रखते हैं—जैसे साफ-सफाई रखना या किसी को नुकसान पहुँचाने से टोकना?</div>
+      <div class="qt-hi">क्या आपने देखा है कि यहाँ लोग मिलकर इस पार्क का ख्याल रखते हैं—जैसे साफ-सफाई रखना या टोकना?</div>
       <div class="opts" id="grp-s_s2">
         <span class="o" onclick="selOpt(this,'s_s2','Yes, actively care')">Yes, actively care (हाँ, ध्यान रखते हैं)</span>
         <span class="o" onclick="selOpt(this,'s_s2','Sometimes/A few')">Sometimes / A few (कभी-कभी)</span>
         <span class="o" onclick="selOpt(this,'s_s2','No/Mind own business')">No / Mind own business (सब अपने काम से काम रखते हैं)</span>
+      </div>
+    </div>
+    <div class="qc"><div class="qn">SLF-S3</div>
+      <div class="qt">In many urban parks, community activities such as laughing clubs, curated yoga, children’s play activity, etc., take place. Do you use the park for such group activities?</div>
+      <div class="qt-hi">क्या आप इस पार्क का उपयोग सामूहिक गतिविधियों (जैसे लाफिंग क्लब, योग, बच्चों के खेल आदि) के लिए करते हैं?</div>
+      <div class="opts" id="grp-s_s3">
+        <span class="o" onclick="selOpt(this,'s_s3','Yes, regularly')">Yes, regularly (हाँ, नियमित)</span>
+        <span class="o" onclick="selOpt(this,'s_s3','Sometimes')">Sometimes (कभी-कभी)</span>
+        <span class="o" onclick="selOpt(this,'s_s3','No')">No (नहीं)</span>
+      </div>
+    </div>
+    <div class="qc"><div class="qn">SLF-S4</div>
+      <div class="qt">Would you want to volunteer as a Park Upkeep Committee member to overview various developmental and community involvement-related activities?</div>
+      <div class="qt-hi">क्या आप पार्क की देखभाल और विकास गतिविधियों के लिए 'पार्क रखरखाव समिति' के सदस्य के रूप में स्वेच्छा से जुड़ना चाहेंगे?</div>
+      <div class="opts" id="grp-s_s4">
+        <span class="o" onclick="selOpt(this,'s_s4','Yes')">Yes (हाँ)</span>
+        <span class="o" onclick="selOpt(this,'s_s4','No')">No (नहीं)</span>
+        <span class="o" onclick="selOpt(this,'s_s4','Maybe')">Maybe (शायद)</span>
       </div>
     </div>
   </div>
@@ -379,7 +426,7 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
     </div>
     <div class="qc"><div class="qn">SLF-N2</div>
       <div class="qt">Do you or your family use anything directly from this park for your daily needs—like resting in the shade, collecting grass/fodder for animals, or picking medicinal leaves?</div>
-      <div class="qt-hi">क्या आप या आपका परिवार अपनी रोज़मर्रा की ज़रूरतों के लिए इस पार्क से कुछ लेते हैं—जैसे जानवरों के लिए चारा/घास, जड़ी-बूटियां, या आराम करने के लिए छाँव का इस्तेमाल?</div>
+      <div class="qt-hi">क्या आप या आपका परिवार इस पार्क से जानवरों के लिए चारा/घास, जड़ी-बूटियां, या आराम करने के लिए छाँव का इस्तेमाल करते हैं?</div>
       <div class="opts" id="grp-s_n2">
         <span class="o" onclick="selOpt(this,'s_n2','Yes, regularly')">Yes, regularly (हाँ, नियमित)</span>
         <span class="o" onclick="selOpt(this,'s_n2','Sometimes')">Sometimes (कभी-कभी)</span>
@@ -392,7 +439,7 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
     <span class="cap-badge cap-p">Physical Capital</span>
     <div class="qc"><div class="qn">SLF-P1</div>
       <div class="qt">Have the physical facilities here—like walking paths, drinking water, or lights—made your visits or your work here safer and more comfortable?</div>
-      <div class="qt-hi">क्या यहाँ बनी नई सुविधाओं—जैसे पक्के रास्ते, पीने का पानी या लाइट—से आपके काम या यहाँ आने-जाने में आसानी और सुरक्षा बढ़ी है?</div>
+      <div class="qt-hi">क्या यहाँ बनी नई सुविधाओं—जैसे पक्के रास्ते, पीने का पानी या लाइट—से आपके आने-जाने में आसानी और सुरक्षा बढ़ी है?</div>
       <div class="opts" id="grp-s_p1">
         <span class="o" onclick="selOpt(this,'s_p1','Yes, a lot')">Yes, a lot (हाँ, काफी आसानी हुई है)</span>
         <span class="o" onclick="selOpt(this,'s_p1','A little bit')">A little bit (हाँ, थोड़ा फर्क पड़ा है)</span>
@@ -406,6 +453,16 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
         <span class="o" onclick="selOpt(this,'s_p2','Formal/Defined space')">Formal / Defined space (तय जगह)</span>
         <span class="o" onclick="selOpt(this,'s_p2','Informal/Shared space')">Informal / Shared (अनौपचारिक)</span>
         <span class="o" onclick="selOpt(this,'s_p2','No proper space')">None (कोई उचित जगह नहीं)</span>
+      </div>
+    </div>
+    <div class="qc"><div class="qn">SLF-P3</div>
+      <div class="qt">Who do you think is primarily responsible for maintaining this park?</div>
+      <div class="qt-hi">आपके अनुसार इस पार्क के रखरखाव के लिए मुख्य रूप से कौन जिम्मेदार है?</div>
+      <div class="opts" id="grp-s_p3">
+        <span class="o" onclick="selOpt(this,'s_p3','Forest Dept')">Forest Dept (वन विभाग)</span>
+        <span class="o" onclick="selOpt(this,'s_p3','Municipality/ULB')">Municipality/ULB (नगर पालिका)</span>
+        <span class="o" onclick="selOpt(this,'s_p3','Community/NGO')">Community/NGO (समुदाय/संस्था)</span>
+        <span class="o" onclick="selOpt(this,'s_p3','Dont know')">Don't know (पता नहीं)</span>
       </div>
     </div>
   </div>
@@ -424,11 +481,21 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
     </div>
     <div class="qc"><div class="qn">SLF-F2</div>
       <div class="qt">Do you get any financial support or are you part of a savings group for your work here—like a government loan or a local self-help group?</div>
-      <div class="qt-hi">क्या आपको यहाँ अपने काम के लिए किसी तरह की आर्थिक मदद या बचत योजना का लाभ मिलता है—जैसे कोई सरकारी लोन या कोई स्थानीय स्वयं सहायता समूह (SHG)?</div>
+      <div class="qt-hi">क्या आपको यहाँ अपने काम के लिए किसी तरह की आर्थिक मदद या बचत योजना का लाभ मिलता है (जैसे सरकारी लोन या SHG)?</div>
       <div class="opts" id="grp-s_f2">
         <span class="o" onclick="selOpt(this,'s_f2','Yes - Govt scheme')">Yes, Govt Scheme (हाँ, सरकारी योजना)</span>
         <span class="o" onclick="selOpt(this,'s_f2','Yes - NGO/SHG')">Yes, NGO / SHG (हाँ, संस्था/समूह)</span>
         <span class="o" onclick="selOpt(this,'s_f2','No - manage on own')">No, manage on own (नहीं, खुद मैनेज करता हूँ)</span>
+      </div>
+    </div>
+    <div class="qc"><div class="qn">SLF-F3</div>
+      <div class="qt">Have you noticed any change in local property values or rents after the park development?</div>
+      <div class="qt-hi">क्या आपने पार्क बनने के बाद आसपास की संपत्ति (प्रॉपर्टी) की कीमतों या किराए में कोई बदलाव देखा है?</div>
+      <div class="opts" id="grp-s_f3">
+        <span class="o" onclick="selOpt(this,'s_f3','Increased')">Increased (बढ़ी हैं)</span>
+        <span class="o" onclick="selOpt(this,'s_f3','Decreased')">Decreased (घटी हैं)</span>
+        <span class="o" onclick="selOpt(this,'s_f3','No change')">No change (कोई बदलाव नहीं)</span>
+        <span class="o" onclick="selOpt(this,'s_f3','Dont know')">Don't know (पता नहीं)</span>
       </div>
     </div>
   </div>
@@ -604,6 +671,18 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
       <div class="qt-hi">"पारिस्थितिक (ecological) दृष्टिकोण से, इस नगर वन ने स्थानीय पर्यावरण पर कैसा प्रभाव डाला है? क्या आपने भूजल स्तर (groundwater), शहरी ठंडक (urban cooling), या जैव विविधता (पक्षियों, पेड़-पौधों की संख्या) में कोई सुधार देखा है?"</div>
       <textarea class="ta" oninput="R.kii_q6=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
+    <div class="kii-qc">
+      <div class="kii-qn">KII-7 | Tree Mortality Protocol</div>
+      <div class="kii-qt">"If a tree planted under this scheme dies, what is the protocol? Is it recorded, reported to NAEB/PMU, and replaced?"</div>
+      <div class="qt-hi">"यदि इस योजना के तहत लगाया गया कोई पेड़ सूख जाता है या मर जाता है, तो उसका प्रोटोकॉल क्या है? क्या इसे दर्ज किया जाता है, NAEB/PMU को रिपोर्ट किया जाता है और बदला जाता है?"</div>
+      <textarea class="ta" oninput="R.kii_q7=this.value;updateProgress()" placeholder="Notes..."></textarea>
+    </div>
+    <div class="kii-qc">
+      <div class="kii-qn">KII-8 | External Physical Inspection</div>
+      <div class="kii-qt">"Has the Nagar Van ever been visited by an external reviewer, auditor, or MoEFCC representative for physical inspection?"</div>
+      <div class="qt-hi">"क्या कभी किसी बाहरी समीक्षक, ऑडिटर या MoEFCC प्रतिनिधि ने भौतिक निरीक्षण के लिए इस नगर वन का दौरा किया है?"</div>
+      <textarea class="ta" oninput="R.kii_q8=this.value;updateProgress()" placeholder="Notes..."></textarea>
+    </div>
   </div>
 </div>
 
@@ -634,6 +713,12 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
       <div class="qt-hi">"भविष्य के लिए आप सब मिलकर क्या सुधार सुझाएंगे? उदाहरण के लिए, क्या यहाँ पीने के पानी, बेहतर लाइट, या बैठने की और जगहों की ज़रूरत है?"</div>
       <textarea class="ta" oninput="R.fgd_q4=this.value;updateProgress()" placeholder="Notes..."></textarea>
     </div>
+    <div class="kii-qc">
+      <div class="kii-qn">FGD-5 | Park Rules & Bylaws</div>
+      <div class="kii-qt">"Are you aware of any written rules or bylaws about what is allowed and not allowed in this park?"</div>
+      <div class="qt-hi">"क्या आपको इस बात की जानकारी है कि इस पार्क में क्या करने की अनुमति है और क्या नहीं, इसके बारे में कोई लिखित नियम या उपनियम हैं?"</div>
+      <textarea class="ta" oninput="R.fgd_q5=this.value;updateProgress()" placeholder="Notes..."></textarea>
+    </div>
   </div>
 </div>
 
@@ -651,14 +736,14 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
     <div class="dict-grid">
       <div class="dict-col">timestamp / id / lat / lon</div><div>Metadata & GPS location</div>
       <div class="dict-col">site / survey_type</div><div>Dropdown selections</div>
-      <div class="dict-col">d_age → d_income</div><div>Demographics</div>
+      <div class="dict-col">d_age → d_reason</div><div>Demographics & Usage</div>
       <div class="dict-col">cvm_initial → protest</div><div>CVM WTP Responses</div>
       <div class="dict-col">w1 → w5 / who_score</div><div>WHO-5 Wellbeing</div>
-      <div class="dict-col">s_h1 → s_f2</div><div>10 SLF Capital variables</div>
+      <div class="dict-col">s_h1 → s_f3</div><div>15 SLF Capital variables</div>
       <div class="dict-col">pra_a1 → pra_e1</div><div>14 PRA checklist items & notes</div>
       <div class="dict-col">photo_file / audio_file</div><div>Filenames saved locally</div>
-      <div class="dict-col">kii_q1 → kii_q6</div><div>6 KII Official interview variables</div>
-      <div class="dict-col">fgd_q1 → fgd_q4</div><div>4 FGD Community variables</div>
+      <div class="dict-col">kii_q1 → kii_q8</div><div>8 KII Official interview variables</div>
+      <div class="dict-col">fgd_q1 → fgd_q5</div><div>5 FGD Community variables</div>
     </div>
   </div>
 </div>
@@ -676,17 +761,17 @@ body{font-family:Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f2f0e
 // ─── DATA OBJECT ───
 var R = {
   timestamp:'', respondent_id:'', lat:'', lon:'', site:'', survey_type:'',
-  d_age:'', d_gender:'', d_edu:'', d_income:'',
+  d_age:'', d_gender:'', d_edu:'', d_income:'', d_reason:'',
   cvm_initial:'', cvm_second:'', cvm_protest:'',
   w1:'', w2:'', w3:'', w4:'', w5:'', who_score:'',
-  s_h1:'', s_h2:'', s_s1:'', s_s2:'', s_n1:'', s_n2:'', s_p1:'', s_p2:'', s_f1:'', s_f2:'',
+  s_h1:'', s_h2:'', s_h3:'', s_s1:'', s_s2:'', s_s3:'', s_s4:'', s_n1:'', s_n2:'', s_p1:'', s_p2:'', s_p3:'', s_f1:'', s_f2:'', s_f3:'',
   pra_a1:'', pra_a1_note:'', pra_a2:'', pra_a2_note:'', pra_a3:'',
   pra_b1:'', pra_b2:'', pra_b3:'', pra_b4:'',
   pra_c1:'', pra_c1_note:'', pra_c2:'', pra_c3:'',
   pra_d1:'', pra_d2:'', pra_d3:'', pra_e1:'',
   photo_file:'', audio_file:'',
-  kii_q1:'', kii_q2:'', kii_q3:'', kii_q4:'', kii_q5:'', kii_q6:'',
-  fgd_q1:'', fgd_q2:'', fgd_q3:'', fgd_q4:''
+  kii_q1:'', kii_q2:'', kii_q3:'', kii_q4:'', kii_q5:'', kii_q6:'', kii_q7:'', kii_q8:'',
+  fgd_q1:'', fgd_q2:'', fgd_q3:'', fgd_q4:'', fgd_q5:''
 };
 
 window.onload = function() {
@@ -842,10 +927,10 @@ function calcWho() {
 function checkTabCompletion() {
   // Logic to turn tabs Green when required fields are filled
   var tabs = {
-    'demo': ['d_age', 'd_gender', 'd_edu', 'd_income'],
+    'demo': ['d_age', 'd_gender', 'd_edu', 'd_income', 'd_reason'],
     'cvm': ['cvm_initial'],
     'who': ['w1', 'w2', 'w3', 'w4', 'w5'],
-    'slf': ['s_h1', 's_h2', 's_s1', 's_s2', 's_n1', 's_n2', 's_p1', 's_p2', 's_f1', 's_f2'],
+    'slf': ['s_h1', 's_h2', 's_h3', 's_s1', 's_s2', 's_s3', 's_s4', 's_n1', 's_n2', 's_p1', 's_p2', 's_p3', 's_f1', 's_f2', 's_f3'],
     'pra': ['pra_a1', 'pra_a2', 'pra_b4', 'pra_c1', 'pra_c2', 'pra_c3', 'pra_d3'], 
     'kii': ['kii_q1'], 
     'fgd': ['fgd_q1']
@@ -905,7 +990,6 @@ function submitToSheets() {
   .then(function() {
     btn.textContent = "▶ Submit Data";
     
-    // FIX: Only show the success message, do not overwrite it with a draft message
     showToast('✓ Submitted to Google Sheet!');
     
     // Clear the draft from phone memory because it successfully submitted
@@ -937,7 +1021,6 @@ function clearForm() {
   genId(); setTimestamp(); updateProgress(); showToast('Form Cleared');
 }
 
-// FIX: Added silent parameter so it doesn't overwrite success messages
 function saveLocal(isSilent) {
   try { 
     localStorage.setItem('nvy_draft', JSON.stringify(R)); 
